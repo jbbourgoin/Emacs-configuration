@@ -1,0 +1,26 @@
+Git notes
+
+* Cloner le dépôt en local :
+
+#+BEGIN_EXAMPLE
+$ git clone git@github.com:user/prog
+#+END_EXAMPLE
+
+* Cloner un dépôt dont on ne possède pas les droits en écriture :
+
+#+BEGIN_EXAMPLE
+$ git clone git://github.com:user/prog
+#+END_EXAMPLE
+
+* Envoyer toutes les modifs sur le serveur :
+
+#+BEGIN_EXAMPLE
+$ git commit -a
+$ git push origin master
+#+END_EXAMPLE
+
+* Mettre à jour son dépôt local
+
+#+BEGIN_EXAMPLE
+$ git pull origin master
+#+END_EXAMPLE
