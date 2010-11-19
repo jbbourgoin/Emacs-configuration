@@ -36,9 +36,10 @@
 ;;; x : install
 (when
     (load
-     (expand-file-name "~/.emacs.d/public/lisp/elpa/package.el"))
+     (expand-file-name "~/.emacs.d/elpa/package.el"))
   (package-initialize))
-
+(setq package-archives '(("ELPA" . "http://tromey.com/elpa/") 
+			 ("gnu" . "http://elpa.gnu.org/packages/")))
 
 ;;; web vcs (pour nxhtml)
 (require 'web-vcs)

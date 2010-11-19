@@ -37,7 +37,7 @@
 ;; Including all org files from a directory into the agenda
 (setq org-agenda-files
       '("~/.emacs.d/public/documents/*.org"
-        "~/.emacs.d/prive/documents/*.org")
+        "~/.emacs.d/prive/documents/*.org"))
 
 ;; afficher les images "en ligne" grâce à iimage
 (require 'iimage)

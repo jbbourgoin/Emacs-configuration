@@ -47,7 +47,7 @@
 (if (fboundp 'my-add-path)
     (let ((my-paths (list
                      "~/Applications/bin"
-                     "~/.emacs.d/bin/")))
+                     "~/.emacs.d/applications/bin/")))
       (dolist (path-to-add my-paths (getenv "PATH"))
         (my-add-path path-to-add))))
 
