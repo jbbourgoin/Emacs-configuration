@@ -44,7 +44,7 @@
 (when (eq system-type 'cygwin)
   (setq inferior-lisp-program
         "/usr/bin/clisp")) ; _your Lisp system_
-(when (eq system-type 'linux)
+(when (eq system-type 'gnu/linux)
   (setq inferior-lisp-program
         "/usr/bin/clisp")) ; _your Lisp system_
 

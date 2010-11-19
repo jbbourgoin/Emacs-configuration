@@ -73,7 +73,7 @@
    ;;(require 'conf-cygwin)
    (require 'conf-powershell)
    ))
-(when (eq system-type 'linux)
+(when (eq system-type 'gnu/linux)
   (
    ;;(require 'conf-gnome-integration)
    ))

@@ -37,6 +37,8 @@
 ;;;::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: scheme-mode ;;;
 (when (eq system-type 'cygwin)
   (setq scheme-program-name "/cygdrive/c/Devel/Racket/Racket.exe"))
+(when (eq system-type 'gnu/linux)
+  (setq scheme-program-name "/usr/bin/plt-r6rs"))
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;(require 'quack)
 

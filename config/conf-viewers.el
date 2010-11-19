@@ -35,7 +35,10 @@
   (require 'cl))
 
 ;;; configuration de docview afin de visualiser pdf, ps etc.
-(setq doc-view-ghostscript-program "c:/Program Files/gs/gs8.71/bin/gswin32.exe")
+(when (eq system-type 'cygwin)
+  (setq doc-view-ghostscript-program "c:/Program Files/gs/gs8.71/bin/gswin32.exe"))
+(when (eq system-type 'gnu/linux)
+  (setq doc-view-ghostscript-program "/usr/bin/gs"))
 ;;(setq doc-view-dvipdf-program "")
 ;;(setq doc-view-pdftotext-program "")
 
