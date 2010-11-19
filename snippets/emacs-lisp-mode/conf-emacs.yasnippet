@@ -1,0 +1,31 @@
+# -*- mode: snippet -*-
+# name: conf-emacs
+# key: tpc
+# contributor: Jean-Baptiste Bourgoin
+# --
+
+
+;;; ${1:file-name}.el --- ${2:name} configuration
+
+;; Author: Jean-Baptiste Bourgoin <monsieur.camille@gmail.com>
+;; Maintainer: Jean-Baptiste Bourgoin <monsieur.camille@gmail.com>
+;; Created: 
+;; Version: ${3:version}
+;; Keywords:
+;; licence: GNU GPL
+
+;; Commentary:
+
+;; Put this file into your load-path and the following into your ~/.emacs.el:
+;;   (require '$1)
+
+;;; Code:
+
+
+(eval-when-compile
+  (require 'cl))
+
+$0
+
+(provide '$1)
+;;; $1 ends here

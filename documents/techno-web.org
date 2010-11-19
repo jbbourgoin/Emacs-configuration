@@ -1,0 +1,28 @@
+Techniques web à surveiller :
+
+* Javascript :
+
+** côté serveur
+
+http://nodejs.org
+http://expressjs.com/
+http://www.mongodb.org/
+http://senchalabs.github.com/connect/
+
+** côté client :
+
+jquery
+
+* CSS
+
+** LESS le css puissant multinavigateur
+
+*** implémentations
+
+http://leafo.net/lessphp/
+http://github.com/cloudhead/less.js
+
+*** tutoriels :
+
+http://net.tutsplus.com/tutorials/php/how-to-squeeze-the-most-out-of-less/
+http://fadeyev.net/2010/06/19/lessjs-will-obsolete-css/
