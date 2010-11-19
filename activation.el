@@ -22,8 +22,6 @@
 ;;; terminal
 (require 'conf-eshell)
 
-(require 'conf-powershell)
-
 ;;; édition
 (require 'conf-bbcode)
 (require 'conf-edition)
@@ -73,6 +71,7 @@
 (when (eq system-type 'cygwin)
   (
    ;;(require 'conf-cygwin)
+   (require 'conf-powershell)
    ))
 (when (eq system-type 'linux)
   (
