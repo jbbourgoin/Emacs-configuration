@@ -40,7 +40,7 @@
              '(nnimap "imap.gmail.com"
                       (nnimap-address "imap.gmail.com")
                       (nnimap-server-port 993)
-                      (nnimap-authinfo-file "~/.authinfo")
+                      (nnimap-authinfo-file "~/.emacs.d/prive/config/imap-authinfo")
                       (nnimap-stream ssl))) ;; openssl : (nnimap-stream ssl) gnutls : (nnim... tls)
 ;;;;;;;;;;;;;;;;;;;;;;;;
 
