@@ -49,7 +49,7 @@
         (concat (eshell/pwd) "\n" (if (= (user-uid) 0) " # " " $ "))))
 ;; charger de nouvelles fonctions
 ;;(require 'eshell_clear)
-;;(require 'eshell_bmk)
+(require 'eshell_bmk)
 ;; sauver l'historique à la fermeture
 (setq eshell-save-history-on-exit t)
 ;; FONCTION OPEN

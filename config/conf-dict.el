@@ -64,6 +64,58 @@ to browser. If a region is active (a phrase), lookup that phrase."
 (require 'popup)
 (setq text-translator-display-popup t)
 
+;;; ispell
+;; dictionnaire en français
+(when (eq system-type 'cygwin)
+  (setq ispell-program-name "/cygdrive/c/Program Files/Aspell/bin/aspell.exe"))
+(setq ispell-extra-args '("--sug-mode=ultra"))
+(setq ispell-dictionary "francais")
+;; liste de dictionnaire
+(require 'ispell)
+;; brezhoneg :
+(add-to-list 'ispell-dictionary-alist
+             '("brezhoneg"
+               "[A-Za-zùñéèêàçœæÉÈÀÇŒÆÊ]"
+               "[^A-Za-zùñéèêàçœæÉÈÀÇŒÆÊ]"
+               "[']" t ("-C" "-d" "brezhoneg") "~latin1" iso-8859-1))
+;; ajouter au menu
+(require 'easymenu)
+
+(defun my-ispell-brezhoneg-dictionary () ;;;;;; BREZHONEG
+  "Switch to the brezhoneg dictionary."
+  (interactive)
+  (ispell-change-dictionary "brezhoneg"))
+(easy-menu-add-item  nil '("tools" "spell")
+                     ["Select brezhoneg Dict" my-ispell-brezhoneg-dictionary t])
+
+(defun my-ispell-francais-dictionary () ;;;;;;; FRANCAIS
+  "Switch to the francais dictionary."
+  (interactive)
+  (ispell-change-dictionary "francais"))
+(easy-menu-add-item  nil '("tools" "spell")
+                     ["Select francais Dict" my-ispell-francais-dictionary t])
+
+(defun my-ispell-english-dictionary () ;;;;;;; ENGLISH
+  "Switch to the english dictionary."
+  (interactive)
+  (ispell-change-dictionary "english"))
+(easy-menu-add-item  nil '("tools" "spell")
+                     ["Select english Dict" my-ispell-english-dictionary t])
+
+;;; FLYSPELL
+;; pour des raisons de performance :
+(setq flyspell-issue-message-flag 'nil)
+;; activer pour les modes suivants :
+(dolist (hook '(text-mode-hook org-mode-hook))
+  (add-hook hook (lambda () (flyspell-mode 1))))
+;; desactiver pour les modes suivants :
+(dolist (hook '(change-log-mode-hook log-edit-mode-hook))
+  (add-hook hook (lambda () (flyspell-mode -1))))
+;; activer dans les commentaires uniquement :
+(add-hook 'c++-mode-hook (lambda () (flyspell-prog-mode)))
+(add-hook 'cperl-mode-hook (lambda () (flyspell-prog-mode)))
+(add-hook 'lisp-mode-hook (lambda () (flyspell-prog-mode)))
+
 
 (provide 'conf-dict)
 ;;; conf-dict.el ends here

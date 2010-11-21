@@ -27,7 +27,6 @@
 (require 'conf-edition)
 (require 'conf-dict)
 (require 'conf-print)
-(require 'conf-spell)
 ;;(require 'conf-vim-emulation)
 (require 'conf-wikipedia)
 (require 'conf-templates)
@@ -69,11 +68,8 @@
 ;;; spécifiques aux OS :
 
 (when (eq system-type 'cygwin)
-  (
    ;;(require 'conf-cygwin)
-   (require 'conf-powershell)
-   ))
+   (require 'conf-powershell))
 (when (eq system-type 'gnu/linux)
-  (
    ;;(require 'conf-gnome-integration)
-   ))
+  )

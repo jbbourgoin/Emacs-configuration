@@ -33,3 +33,5 @@ Completion is available."))
              (error "Bookmark %s points to %s which is not a directory" 
                     bookmark filename))
          (error "%s is not a bookmark" bookmark))))))
+
+(provide 'eshell_bmk)
