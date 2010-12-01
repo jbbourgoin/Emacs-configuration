@@ -47,6 +47,7 @@
 (if (fboundp 'my-add-path)
     (let ((my-paths (list
                      "~/Applications/bin"
+		     "~/.emacs.d/public/bin/"
                      "~/.emacs.d/applications/bin/")))
       (dolist (path-to-add my-paths (getenv "PATH"))
         (my-add-path path-to-add))))
@@ -64,7 +65,7 @@
 ;; pour recomposer *info* évaluer : (setq Info-dir-contents nil)
 (require 'info)
 (setq Info-directory-list
-      (append '("~/info")
+      (append '("~/.info")
               Info-default-directory-list
               Info-directory-list))
 

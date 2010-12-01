@@ -10,6 +10,8 @@
 (setq user-full-name "Jean-Baptiste Bourgoin")
 ;;;;;;;;;;;;;;;;;;;
 
+(setq gnus-directory "~/.emacs.d/prive/gnus/News/")
+(setq message-directory "~/.emacs.d/prive/gnus/Mail/")
 
 ;;;; trier :
 ;; par date (plus récent en premier) puis par sujets
@@ -31,11 +33,12 @@
 (setq gnus-select-method '(nntp "news.eternal-september.org"))
 ;; IMAP
 (when (eq system-type 'cygwin)
-  (setq imap-ssl-program-binary "/bin/openssl.exe"))
-(setq imap-ssl-program-arguments "s_client -quiet -ssl3 -connect %s:%p")
-(setq imap-ssl-program (concat imap-ssl-program-binary
+  (setq imap-ssl-program-binary "/bin/openssl.exe")
+  (setq imap-ssl-program-arguments "s_client -quiet -ssl3 -connect %s:%p")
+  (setq imap-ssl-program (concat imap-ssl-program-binary
                                " "
-                               imap-ssl-program-arguments))
+                               imap-ssl-program-arguments)))
+
 (add-to-list 'gnus-secondary-select-methods
              '(nnimap "imap.gmail.com"
                       (nnimap-address "imap.gmail.com")
@@ -70,6 +73,8 @@
 ;; we substitute sendmail with msmtp
 (when (eq system-type 'cygwin)
   (setq sendmail-program "~/.emacs.d/bin/msmtp.exe -C ~/.emacs.d/prive/config/msmtprc"))
+(when (eq system-type 'gnu/linux)
+    (setq sendmail-program "/usr/bin/msmtp"))
 (defun cg-feed-msmtp ()
   (if (message-mail-p)
       (save-excursion

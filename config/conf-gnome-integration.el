@@ -49,7 +49,7 @@
 
 (defun fd-add-file-to-recent ()
   (when buffer-file-name
-    (start-process "addtorecent" nil "addtorecent"
+    (start-process "addtorecent" nil "~/.emacs.d/public/bin/addtorecent"
                    (concat "file://" buffer-file-name)
                    "text/plain"
                    "Emacs"
@@ -57,6 +57,8 @@
 
 (add-hook 'find-file-hook 'fd-add-file-to-recent)
 
+;; système (GNOME etc.) :
+;;(setq font-use-system-font t)
 
 (provide 'conf-gnome-integration)
 ;;; conf-gnome-integration.el ends here

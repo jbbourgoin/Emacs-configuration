@@ -39,7 +39,7 @@
 
 
 ;;; multimédia
-(require 'conf-emms)
+;;(require 'conf-emms)
 
 ;;; web
 (require 'conf-extbrowser)
@@ -57,8 +57,8 @@
 ;;(require 'conf-clojure)
 (require 'conf-csharp)
 ;;(require 'conf-java)
-(require 'conf-javascript)
 (require 'conf-xml)
+(require 'conf-javascript)
 (require 'conf-lisp)
 (require 'conf-parrot)
 (require 'conf-perl)
@@ -71,5 +71,4 @@
    ;;(require 'conf-cygwin)
    (require 'conf-powershell))
 (when (eq system-type 'gnu/linux)
-   ;;(require 'conf-gnome-integration)
-  )
+   (require 'conf-gnome-integration))

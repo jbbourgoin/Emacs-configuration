@@ -34,15 +34,21 @@
 (eval-when-compile
   (require 'cl))
 
+;; (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
+
+;;; Le REPL fonctionne avec le mode js2. Il faut, dans le cadre de
+;;; cette configuration, l'activer à la main.
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; JS REPL ;;
 ;; run-js : see the repl                                                      ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (require 'js-comint)
-(when (eq system-type 'linux)
+(when (eq system-type 'gnu/linux)
   (setq inferior-js-program-command "/usr/bin/seed")) ;; seed, smjs, rhino etc.
 (add-hook 'js2-mode-hook
           '(lambda () 
-             (local-set-key "\C-x\C-e" 'js-send-last-sexp)
+             ;; (local-set-key "\C-x\C-e" 'js-send-last-sexp)
+             (local-set-key "\C-x\C-e" 'js-send-region)
 ;;             (local-set-key "\C-\M-x" 'js-send-last-sexp-and-go)
 ;;             (local-set-key "\C-cb" 'js-send-buffer)
 ;;             (local-set-key "\C-c\C-b" 'js-send-buffer-and-go)

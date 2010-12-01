@@ -1,9 +1,0 @@
-Astuces Emacs
-
-* Chercher et remplacer
-** remplacer avec un retour chariot
-
-Très simple, il suffit, pour indiquer un retour chariot, de faire un
-*C-q C-j*.
-
-
