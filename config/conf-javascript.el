@@ -34,7 +34,7 @@
 (eval-when-compile
   (require 'cl))
 
-;; (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
+(add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
 
 ;;; Le REPL fonctionne avec le mode js2. Il faut, dans le cadre de
 ;;; cette configuration, l'activer à la main.

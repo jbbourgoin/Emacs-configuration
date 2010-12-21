@@ -42,6 +42,7 @@
 ;; >>>  means insert at point - this works when redirecting to a
 ;;        buffer or to an open file
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(setq eshell-directory-name "~/.emacs.d/eshell")
 ;; PROMPT
 ;; saute une ligne entre le chemin et le prompt :
 (setq eshell-prompt-function

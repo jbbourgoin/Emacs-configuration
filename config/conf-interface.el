@@ -57,7 +57,7 @@
 (when (eq system-type 'cygwin)
   (set-face-attribute 'default nil :family "Anonymous Pro" :height 120))
 (when (eq system-type 'gnu/linux)
-  (set-face-attribute 'default nil :family "Liberation Mono" :height 110))
+  (set-face-attribute 'default nil :family "Liberation Mono" :height 100))
 ;;(set-face-attribute 'default nil :family "Consolas" :height 100)
 ;;(set-face-attribute 'default nil :family "Courier" :height 100)
 

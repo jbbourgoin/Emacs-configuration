@@ -57,7 +57,7 @@
 ;;(require 'conf-clojure)
 (require 'conf-csharp)
 ;;(require 'conf-java)
-(require 'conf-xml)
+;;(require 'conf-xml)
 (require 'conf-javascript)
 (require 'conf-lisp)
 (require 'conf-parrot)
@@ -72,3 +72,8 @@
    (require 'conf-powershell))
 (when (eq system-type 'gnu/linux)
    (require 'conf-gnome-integration))
+
+;;; desactivations diverses :
+
+;; pde active ido, le désactiver par défaut :
+(ido-mode -1)

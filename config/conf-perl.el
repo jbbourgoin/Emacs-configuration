@@ -45,8 +45,5 @@
 (load "pde-load")
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;; pde active ido, le désactiver par défaut :
-;;(ido-mode -1)
-
 (provide 'conf-perl)
 ;;; conf-perl.el ends here

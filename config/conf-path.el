@@ -48,7 +48,9 @@
     (let ((my-paths (list
                      "~/Applications/bin"
 		     "~/.emacs.d/public/bin/"
-                     "~/.emacs.d/applications/bin/")))
+                     "~/.emacs.d/applications/bin/"
+                     "~/.perl6/bin/"
+                     )))
       (dolist (path-to-add my-paths (getenv "PATH"))
         (my-add-path path-to-add))))
 
