@@ -40,6 +40,11 @@
 
 ;;; visual-line-mode : c'est un mode "visual line" (=/= logical line)
 ;; (setq global-visual-line-mode t) ;; global
+(add-hook 'text-mode-hook 'turn-on-visual-line-mode)
+(add-hook 'fundamental-mode-hook 'turn-on-visual-line-mode)
+(add-hook 'xbbcode-mode-hook 'turn-on-visual-line-mode)
+(add-hook 'bbcode-mode-hook 'turn-on-visual-line-mode)
+(add-hook 'markdown-mode-hook 'turn-on-visual-line-mode)
 
 ;;; Afficher la 'parenthèse correspondante'
 (show-paren-mode 1)
@@ -70,6 +75,16 @@
 ;;; delim
 ;; Kill text between two delimiters, preserving structure.
 (require 'delim-kill)
+
+;;; unfill paragraph
+(defun jbb-unfill-paragraph ()
+  "Does the opposite of fill-paragraph"
+  (interactive)
+  (let
+      ((fill-column (point-max)))
+    (fill-paragraph nil)))
+
+(global-set-key [f5] 'jbb-unfill-paragraph)
 
 (provide 'conf-edition)
 ;;; conf-edition.el ends here

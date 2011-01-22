@@ -18,7 +18,15 @@
 (eval-when-compile
   (require 'cl))
 
-(require 'xbbcode-mode)
+(require 'bbcode-mode)
+
+(global-set-key "\C-c\C-f\C-i" 'bbcode-insert-italic)
+(global-set-key "\C-c\C-f\C-b" 'bbcode-insert-bold)
+(global-set-key "\C-c\C-f\C-q" 'bbcode-insert-quote)
+(global-set-key "\C-c\C-f\C-l" 'bbcode-insert-link)
+(global-set-key "\C-c\C-fi"    'bbcode-insert-image)
+
+(add-to-list 'auto-mode-alist '("\\.bbcode\\'" . bbcode-mode))
 
 (provide 'conf-bbcode)
 ;;; conf-bbcode.el ends here

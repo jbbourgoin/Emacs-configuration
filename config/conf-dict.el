@@ -68,6 +68,8 @@ to browser. If a region is active (a phrase), lookup that phrase."
 ;; dictionnaire en français
 (when (eq system-type 'cygwin)
   (setq ispell-program-name "/cygdrive/c/Program Files/Aspell/bin/aspell.exe"))
+(when (eq system-type 'gnu/linux)
+  (setq ispell-program-name "/usr/bin/aspell"))
 (setq ispell-extra-args '("--sug-mode=ultra"))
 (setq ispell-dictionary "francais")
 ;; liste de dictionnaire

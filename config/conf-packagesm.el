@@ -38,8 +38,15 @@
     (load
      (expand-file-name "~/.emacs.d/elpa/package.el"))
   (package-initialize))
-(setq package-archives '(("ELPA" . "http://tromey.com/elpa/") 
-			 ("gnu" . "http://elpa.gnu.org/packages/")))
+;; Add the GNU Package Archive
+(setq package-archives
+             '(("gnu" . "http://elpa.gnu.org/packages/")))
+;; Add the original Emacs Lisp Package Archive
+(add-to-list 'package-archives
+             '("elpa" . "http://tromey.com/elpa/"))
+;; Add the user-contributed repository
+(add-to-list 'package-archives
+             '("marmalade" . "http://marmalade-repo.org/packages/"))
 
 ;;; web vcs (pour nxhtml)
 (require 'web-vcs)

@@ -40,7 +40,9 @@
 (when (eq system-type 'gnu/linux)
   (setq scheme-program-name "/usr/bin/ypsilon"))
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;(require 'quack)
+
+;;; Geiser (quand racket ou guile 2) :
+;;(load-file "~/.emacs.d/public/lisp/geiser/elisp/geiser.el")
 
 (provide 'conf-scheme)
 ;;; conf-scheme.el ends here

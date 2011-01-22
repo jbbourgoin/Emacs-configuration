@@ -34,22 +34,20 @@
 (eval-when-compile
   (require 'cl))
 
-(when (eq emacs-version '23.2)
-  (progn
-    (require 'ede)
-    (require 'semantic)
-    (require 'eieio)
-    (require 'sr-speedbar)
-    (global-ede-mode t)                      ; Enable the Project management system
-    ;;(semantic-load-enable-code-helpers)      ; Enable prototype help and smart completion 
-    (setq semanticdb-default-save-directory "~/.emacs.d/semantic-cache/")
-    ;;(global-srecode-minor-mode 1)            ; Enable template insertion menu
-    ;; speedbar
-    ;; sr-speedbar : la barre dans un buffer plutôt que dans une fenêtre
-    (global-set-key (kbd "C-x p") 'sr-speedbar-toggle)
-    (setq sr-speedbar-width-x '80)
-    (setq sr-speedbar-auto-refresh nil)
-    (setq sr-speedbar-right-side nil)))
+(require 'ede)
+(require 'semantic)
+(require 'eieio)
+(require 'sr-speedbar)
+(global-ede-mode t)                      ; Enable the Project management system
+;;(semantic-load-enable-code-helpers)      ; Enable prototype help and smart completion 
+(setq semanticdb-default-save-directory "~/.emacs.d/semantic-cache/")
+;;(global-srecode-minor-mode 1)            ; Enable template insertion menu
+;; speedbar
+;; sr-speedbar : la barre dans un buffer plutôt que dans une fenêtre
+(global-set-key (kbd "C-x p") 'sr-speedbar-toggle)
+(setq sr-speedbar-width-x '80)
+(setq sr-speedbar-auto-refresh nil)
+(setq sr-speedbar-right-side nil)
 
 (provide 'conf-cedet)
 ;;; conf-cedet.el ends here
