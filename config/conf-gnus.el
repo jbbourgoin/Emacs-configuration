@@ -39,12 +39,24 @@
                                " "
                                imap-ssl-program-arguments)))
 
-(add-to-list 'gnus-secondary-select-methods
-             '(nnimap "imap.gmail.com"
+
+
+(setq gnus-secondary-select-methods
+             '(
+
+               (nnimap "monsieur.camille"
                       (nnimap-address "imap.gmail.com")
                       (nnimap-server-port 993)
                       (nnimap-authinfo-file "~/.emacs.d/prive/config/imap-authinfo")
-                      (nnimap-stream ssl))) ;; openssl : (nnimap-stream ssl) gnutls : (nnim... tls)
+                      (nnimap-stream ssl)) ;; openssl : (nnimap-stream ssl) gnutls : (nnim... tls)
+               
+               (nnimap "jeanbaptiste.bourgoin"
+                      (nnimap-address "imap.gmail.com")
+                      (nnimap-server-port 993)
+                      (nnimap-authinfo-file "~/.emacs.d/prive/config/imap-authinfo")
+                      (nnimap-stream ssl))
+               
+               ))
 ;;;;;;;;;;;;;;;;;;;;;;;;
 
 
@@ -74,7 +86,7 @@
 (when (eq system-type 'cygwin)
   (setq sendmail-program "~/.emacs.d/bin/msmtp.exe -C ~/.emacs.d/prive/config/msmtprc"))
 (when (eq system-type 'gnu/linux)
-    (setq sendmail-program "/usr/bin/msmtp"))
+    (setq sendmail-program "msmtp"))
 (defun cg-feed-msmtp ()
   (if (message-mail-p)
       (save-excursion

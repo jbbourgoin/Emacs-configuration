@@ -52,6 +52,22 @@
 (require 'slime)
 (slime-setup)
 
+;;; paredit
+;; paredit-open-list (() - Inserts a balanced parenthesis pair.
+;; paredit-close-list (M-)) - Moves past one closing parenthesis and reindents.
+;; paredit-close-list-and-newline ()) - Moves past one closing delimiter, adds a newline, and reindents.
+;; paredit-splice-sexp (M-s) - Splices the list that the point is on by removing its delimiters.
+;; paredit-backward-delete (DEL) - Deletes a character backward or moves backward over a delimiter.
+;; paredit-forward-slurp-sexp (C-)) - Adds the S-expression following the current list into that list by moving the closing delimiter.
+;; paredit-backward-slurp-sexp (C-() - Adds the S-expression preceding the current list into that list by moving the closing ((sic) opening?) delimiter.
+;; paredit-forward-barf-sexp (C-}) - Removes the last S-expression in the current list from that list by moving the closing delimiter.
+;; paredit-backward-barf-sexp (C-{) - Removes the first S-expression in the current list from that list by moving the closing ((sic) opening?) delimiter.
+;; paredit-wrap-sexp (M-() - Wraps the following S-expression in a list.
+(autoload 'paredit-mode "paredit"
+  "Minor mode for pseudo-structurally editing Lisp code." t)
+(add-hook 'emacs-lisp-mode-hook       (lambda () (paredit-mode +1)))
+(add-hook 'lisp-mode-hook             (lambda () (paredit-mode +1)))
+(add-hook 'lisp-interaction-mode-hook (lambda () (paredit-mode +1)))
 
 (provide 'conf-lisp)
 ;;; conf-lisp.el ends here

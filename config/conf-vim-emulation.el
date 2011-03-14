@@ -43,5 +43,13 @@
 (setq woman-use-own-frame nil)     ; don't create new frame for manpages
 (setq woman-use-topic-at-point t)  ; don't prompt upon K key (manpage display)
 
+;; with dired
+(define-key dired-mode-map "v" 'dired-x-find-file)
+(define-key dired-mode-map "V" 'dired-view-file)
+(define-key dired-mode-map "j" 'dired-next-line)
+(define-key dired-mode-map "J" 'dired-goto-file)
+(define-key dired-mode-map "k" 'dired-previous-line)
+(define-key dired-mode-map "K" 'dired-do-kill-lines)
+
 (provide 'conf-vim-emulation)
 ;;; conf-vim-emulation.el ends here

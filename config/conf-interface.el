@@ -46,8 +46,8 @@
 
 ;;; Menus etc...
 (tool-bar-mode 0)
-;;(scroll-bar-mode 1)
-;;(set-scroll-bar-mode 'right)
+(scroll-bar-mode t)
+(set-scroll-bar-mode 'right)
 (menu-bar-mode 1)
 (blink-cursor-mode 1)
 
@@ -57,16 +57,17 @@
 (when (eq system-type 'cygwin)
   (set-face-attribute 'default nil :family "Anonymous Pro" :height 120))
 (when (eq system-type 'gnu/linux)
-  ;; (set-face-attribute 'default nil :family "Liberation Mono" :height 100)
-  (set-face-attribute 'default nil :family "Anonymous Pro" :height 120)
+  (set-face-attribute 'default nil :family "Liberation Mono" :height 100)
+  ;; (set-face-attribute 'default nil :family "Anonymous Pro" :height 140)
+  ;; (set-face-attribute 'default nil :family "Inconsolata" :height 120)
   )
 ;;(set-face-attribute 'default nil :family "Consolas" :height 100)
 ;;(set-face-attribute 'default nil :family "Courier" :height 100)
 
 ;;; couleur
-;;(require 'color-theme)
-;;(color-theme-initialize)
-;;(color-theme-goldenroad)
+;; (require 'color-theme)
+;; (color-theme-initialize)
+;; (color-theme-comidia)
 
 ;;; taille
 (setq initial-frame-alist 

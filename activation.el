@@ -1,5 +1,3 @@
-
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Emacs 23 1999 - 2010   ;;
 ;; Jean-Baptiste Bourgoin ;;
@@ -43,6 +41,7 @@
 
 ;;; multimédia
 ;;(require 'conf-emms)
+(require 'conf-lilypond)
 
 ;;; web
 (require 'conf-extbrowser)
@@ -50,34 +49,37 @@
 
 ;;; chat
 (require 'conf-identica)
-(require 'conf-twitter)
-(require 'conf-jabber)
-(require 'conf-irc)
+;;(require 'conf-twitter)
+;;(require 'conf-jabber)
+;;(require 'conf-irc)
 
 ;;; développement
 (require 'conf-cedet)
 (require 'conf-c)
 ;;(require 'conf-clojure)
-(require 'conf-csharp)
+;;(require 'conf-csharp)
 ;;(require 'conf-java)
-;;(require 'conf-xml)
-(require 'conf-haskell)
+(require 'conf-xml)
+(require 'conf-tex)
+;;(require 'conf-haskell)
 (require 'conf-javascript)
 (require 'conf-lisp)
-(require 'conf-parrot)
+;;(require 'conf-parrot)
 (require 'conf-perl)
+(require 'conf-python)
 (require 'conf-php)
-(require 'conf-scheme)
+;;(require 'conf-scheme)
+(require 'sawfish)
 
 ;;; spécifiques aux OS :
 
 (when (eq system-type 'cygwin)
    ;;(require 'conf-cygwin)
    (require 'conf-powershell))
-(when (eq system-type 'gnu/linux)
-   (require 'conf-gnome-integration))
+;; (when (eq system-type 'gnu/linux)
+;;     (require 'conf-gnome-integration))
 
 ;;; desactivations diverses :
 
 ;; pde active ido, le désactiver par défaut :
-(ido-mode -1)
+(ido-mode 1)

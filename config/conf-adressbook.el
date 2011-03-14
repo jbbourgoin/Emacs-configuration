@@ -34,8 +34,17 @@
 (eval-when-compile
   (require 'cl))
 
+;;; vcard
 (require 'vcard)
-(require 'abook)
+
+;;; address book
+(require 'external-abook)
+;; goobook
+(custom-set-variables '(external-abook-command "goobook query '%s'"))
+;; key in gnus : gnus-message-mode external-abook-try-expand
+(defun add-keys-to-message-mode ()
+  (local-set-key (kbd "C-i") 'external-abook-try-expand))
+(add-hook 'message-mode 'add-keys-to-message-mode)
 
 (provide 'conf-adressbook)
 ;;; conf-adressbook.el ends here

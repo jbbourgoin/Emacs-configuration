@@ -34,7 +34,6 @@
 (eval-when-compile
   (require 'cl))
 
-
 (when (eq system-type 'cygwin)
   (progn
     ;; WINDOWS :
@@ -43,8 +42,13 @@
     ;;"c:/Users/jbbourgoin/AppData/Local/Google/Chrome/Application/chrome.exe")
     (setq browse-url-browser-function 'browse-url-generic
           browse-url-generic-program
-          "c:/Program Files/Mozilla Firefox/firefox.exe")
-    ))
+          "c:/Program Files/Mozilla Firefox/firefox.exe")))
+
+(when (eq system-type 'gnu/linux)
+  (progn
+    (setq browse-url-browser-function 'browse-url-generic
+          browse-url-generic-program
+          "firefox")))
 
 (provide 'conf-extbrowser)
 ;;; conf-extbrowser.el ends here

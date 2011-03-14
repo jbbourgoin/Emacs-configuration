@@ -47,18 +47,25 @@
 ;;;  ou emacsclient par défaut
 
 
-(defun fd-add-file-to-recent ()
-  (when buffer-file-name
-    (start-process "addtorecent" nil "~/.emacs.d/public/bin/addtorecent"
-                   (concat "file://" buffer-file-name)
-                   "text/plain"
-                   "Emacs"
-                   "emacsclient %F")))
+;; (defun fd-add-file-to-recent ()
+;;   (when buffer-file-name
+;;     (start-process "addtorecent" nil "~/.emacs.d/public/bin/addtorecent"
+;;                    (concat "file://" buffer-file-name)
+;;                    "text/plain"
+;;                    "Emacs"
+;;                    "emacsclient %F")))
 
-(add-hook 'find-file-hook 'fd-add-file-to-recent)
+;; (add-hook 'find-file-hook 'fd-add-file-to-recent)
 
-;; système (GNOME etc.) :
-;;(setq font-use-system-font t)
+;; police de caractère
+(setq font-use-system-font t)
+
+;; navigateur web
+(when (eq system-type 'gnu/linux)
+  (progn
+    (setq browse-url-browser-function 'browse-url-generic
+          browse-url-generic-program
+          "gnome-open")))
 
 (provide 'conf-gnome-integration)
 ;;; conf-gnome-integration.el ends here

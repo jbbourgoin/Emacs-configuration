@@ -38,11 +38,13 @@
 (when (eq system-type 'cygwin)
   (setq scheme-program-name "/cygdrive/c/Devel/Racket/Racket.exe"))
 (when (eq system-type 'gnu/linux)
-  (setq scheme-program-name "/usr/bin/ypsilon"))
+  (setq scheme-program-name "/usr/bin/racket"))
+(add-hook 'scheme-mode-hook       (lambda () (paredit-mode +1)))
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;; Geiser (quand racket ou guile 2) :
-;;(load-file "~/.emacs.d/public/lisp/geiser/elisp/geiser.el")
+;; (load-file "~/.emacs.d/public/lisp/geiser/elisp/geiser.el")
+;; (add-hook 'geiser-mode-hook       (lambda () (paredit-mode +1)))
 
 (provide 'conf-scheme)
 ;;; conf-scheme.el ends here

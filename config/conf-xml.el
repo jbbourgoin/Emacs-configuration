@@ -35,7 +35,7 @@
   (require 'cl))
 
 ;;; nxhtml
-;;(load "~/.emacs.d/public/lisp/nxhtml/autostart.el")
+(load "~/.emacs.d/public/lisp/nxhtml/autostart.el")
 
 (provide 'conf-xml)
 ;;; conf-xml.el ends here

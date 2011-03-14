@@ -47,9 +47,9 @@
 (require 'identica-mode)
 (load "~/.emacs.d/prive/config/password-identica.el")
 ;; update status
-(global-set-key "\C-cip" 'identica-update-status-interactive)
+;;(global-set-key "\C-cip" 'identica-update-status-interactive)
 ;; Direct messages
-(global-set-key "\C-cid" 'identica-direct-message-interactive)
+;;(global-set-key "\C-cid" 'identica-direct-message-interactive)
 
 
 (provide 'conf-identica)
