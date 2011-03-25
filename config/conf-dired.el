@@ -55,13 +55,40 @@
 (require 'dired+)
 
 (require 'run-assoc)
+
 (when (eq system-type 'cygwin)
   (setq associated-program-alist
       '(("/cygdrive/c/Program Files/SumatraPDF/SumatraPDF.exe" "\\.pdf$")
         ((lambda (file)
            (browse-url
-	    (concat "file:///" (expand-file-name file)))) "\\.html?$")
-	)))
+	    (concat "file:///" (expand-file-name file)))) "\\.html?$"))))
+
+;;; ouvrire dans dired avec xdg-open
+(when (eq system-type 'gnu/linux)
+  (defun dired-do-shell-launch-file-default ()
+    (interactive)
+    (save-window-excursion
+      (dired-do-async-shell-command
+       "$HOME/.emacs.d/public/bin/open.sh" current-prefix-arg ;; linux;; multiple files
+       ;; "nohup xdg-open" current-prefix-arg ;; linux can open multiple files, but one at a time
+       ;; "see" current-prefix-arg ;; linux;; can open at most 1 file (being opened)
+       ;; "open" current-prefix-arg ;; mac os x
+       (dired-get-marked-files t current-prefix-arg)))))
+(when (eq system-type 'gnu/linux)
+  (define-key dired-mode-map (kbd "s-o") 'dired-do-shell-launch-file-default))
+
+;; unmount disk in dired
+;;http://loopkid.net/articles/2008/06/27/force-unmount-on-mac-os-x
+(when (eq system-type 'gnu/linux)
+  (defun dired-do-shell-unmount-device ()
+    (interactive)
+    (save-window-excursion
+      (dired-do-async-shell-command
+       "umount" current-prefix-arg ;; linux
+       ;; "diskutil unmount" current-prefix-arg ;; mac os x
+       (dired-get-marked-files t current-prefix-arg)))))
+(when (eq system-type 'gnu/linux)
+  (define-key dired-mode-map (kbd "s-u") 'dired-do-shell-unmount-device))
 
 (provide 'conf-dired)
 ;;; conf-dired.el ends here
