@@ -35,10 +35,10 @@
   (require 'cl))
 
 
-;; utiliser le mode "python-mode" (launchpad)
-(autoload 'python-mode "python-mode" "Python Mode." t)
-(add-to-list 'auto-mode-alist '("\\.py\\'" . python-mode))
-(add-to-list 'interpreter-mode-alist '("python" . python-mode))
+;; ;; utiliser le mode "python-mode" (launchpad)
+;; (autoload 'python-mode "python-mode" "Python Mode." t)
+;; (add-to-list 'auto-mode-alist '("\\.py\\'" . python-mode))
+;; (add-to-list 'interpreter-mode-alist '("python" . python-mode))
 
 (provide 'conf-python)
 ;;; conf-python.el ends here

@@ -44,34 +44,16 @@
   (setq emms-source-file-default-directory
         "/cygdrive/c/Users/jbbourgoin/Music"))
 
-;; (when (eq system-type 'cygwin)
-;;   (progn
-;;     (define-emms-simple-player vlc '(file url)
+(when (eq system-type 'gnu/linux)
+  (setq emms-source-file-default-directory
+        "~/Musique/"))
+
+
+;; (define-emms-simple-player mplayer '(file url)
 ;;       (regexp-opt
-;;        '(".ogg" ".mp3" ".wav" ".flac" ".pls" ".m3u" "http://")
-;;        ) "c:/Program Files/VideoLAN/VLC/vlc.exe" "--intf=dummy")
-;;     ))
-
-(define-emms-simple-player ogg123 '(file url)
-      (regexp-opt
-       '(".ogg" ".OGG")
-       ) "/usr/bin/ogg123")
-(add-to-list 'emms-player-list 'emms-player-ogg123)
-
-(define-emms-simple-player mpg123 '(file url)
-      (regexp-opt
-       '(".mp3" ".MP3")
-       ) "/usr/bin/mpg123")
-(add-to-list 'emms-player-list 'emms-player-mpg123)
-
-(when (eq system-type 'cygwin)
-  (define-emms-simple-player sox '(file url)
-    (regexp-opt
-     '(".flac" ".FLAC" ".ogg" ".OGG")
-     ) "/usr/local/bin/play")
-  (add-to-list 'emms-player-list 'emms-player-sox)
-  )
-
+;;        '(".ogg" ".OGG" ".mp3" ".MP3" ".flac" ".FLAC" ".aac" ".AAC")
+;;        ) "/usr/bin/ogg123")
+;; (add-to-list 'emms-player-list 'emms-player-mplayer)
 
 ;;; Add music file to playlist on '!', --lgfang
 (add-to-list 'dired-guess-shell-alist-user

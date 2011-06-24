@@ -4,8 +4,8 @@
 ;; Copyright (C) 2009 Bradley M. Kuhn
 
 ;; Author: Gabriel Saldana <gsaldana@gmail.com>
-;; Last update: 2009-02-21
-;; Version: 1.0
+;; Last update: 2010-11-26
+;; Version: 1.1
 ;; Keywords: identica web
 ;; URL: http://blog.nethazard.net/identica-mode-for-emacs/
 ;; Contributors:
@@ -19,6 +19,7 @@
 ;;     Sean Neakums (patches of bugs flagged by byte-compiler)
 ;;     Shyam Karanatt <shyam@swathanthran.in> (several patches and code cleanup, new http backend based on url.el)
 ;;     Tezcatl Franco <tzk@riseup.net> (ur1.ca support)
+;;     Anthony Garcia <lagg@lavabit.com> (fix for icon-mode)
 
 ;; Identica Mode is a major mode to check friends timeline, and update your
 ;; status on Emacs.
@@ -41,6 +42,11 @@
 ;; along with GNU Emacs; see the file COPYING.  If not, write to
 ;; the Free Software Foundation, Inc., 51 Franklin Street, Fifth floor,
 ;; Boston, MA 02110-1301, USA.
+
+;; Requirements
+;; if using Emacs22 or previous, you'll need json.el
+;; get it from http://edward.oconnor.cx/2006/03/json.el
+;; json.el is part of Emacs23
 
 ;; Installation
 
@@ -66,7 +72,7 @@
 
 ;; Follow me on identica: http://identi.ca/gabrielsaldana
 
-(eval-when-compile (require 'cl))
+(require 'cl)
 (require 'xml)
 (require 'parse-time)
 (require 'longlines)
@@ -74,7 +80,7 @@
 (require 'url-http)
 (require 'json)
 
-(defconst identica-mode-version "1.0")
+(defconst identica-mode-version "1.1")
 
 ;;url-basepath fix for emacs22
 (unless (fboundp 'url-basepath)
@@ -117,6 +123,11 @@
 You can read `identica-new-dents-count' to get the number of new
 tweets received when this hook is run.")
 
+(defvar identica-display-max-dents nil
+  "How many dents to keep on the displayed timeline.
+
+If non-nil, dents over this amount will bre removed.")
+
 ;; Menu
 (unless menu-bar-identica-mode-menu
   (easy-menu-define
@@ -125,6 +136,7 @@ tweets received when this hook is run.")
       ["Send an update" identica-update-status-interactive t]
       ["Send a direct message" identica-direct-message-interactive t]
       ["Re-dent someone's update" identica-redent t]
+      ["Repeat someone's update" identica-repeat t]
       ["Add as favorite" identica-favorite t]
       ["Follow user" identica-follow]
       ["Unfollow user" identica-unfollow]
@@ -175,6 +187,11 @@ tweets received when this hook is run.")
 
 (defcustom identica-display-success-messages nil
   "Display messages when the timeline is successfully retrieved"
+  :type 'boolean
+  :group 'identica-mode)
+
+(defcustom identica-oldest-first nil
+  "If t, display older messages before newer ones"
   :type 'boolean
   :group 'identica-mode)
 
@@ -333,7 +350,7 @@ ur1ca, tighturl, tinyurl, toly, and google"
 		(if (not (file-directory-p identica-tmp-dir))
 		    (make-directory identica-tmp-dir))
 		t)))))
-  (identica-render-timeline))
+  (identica-get-timeline))
 
 (defun identica-scroll-mode (&optional arg)
   (interactive)
@@ -380,9 +397,20 @@ ur1ca, tighturl, tinyurl, toly, and google"
 	(not identica-debug-mode))
   (message (if identica-debug-mode "debug mode:on" "debug mode:off")))
 
+(defun identica-delete-notice ()
+  (interactive)
+  (let ((id (get-text-property (point) 'id))
+        (usern (get-text-property (point) 'username)))
+    (if (string= usern identica-username)
+        (when (y-or-n-p "Delete this notice? ")
+          (identica-http-post "statuses/destroy" (number-to-string id))
+          (identica-get-timeline))
+      (message "Can't delete a notice that isn't yours"))))
+
 (if identica-mode-map
     (let ((km identica-mode-map))
       (define-key km "\C-c\C-f" 'identica-friends-timeline)
+;;      (define-key km "\C-c\C-i" 'identica-direct-messages-timeline)
       (define-key km "\C-c\C-r" 'identica-replies-timeline)
       (define-key km "\C-c\C-a" 'identica-public-timeline)
       (define-key km "\C-c\C-g" 'identica-group-timeline)
@@ -392,6 +420,7 @@ ur1ca, tighturl, tinyurl, toly, and google"
       (define-key km "\C-c\C-s" 'identica-update-status-interactive)
       (define-key km "\C-c\C-d" 'identica-direct-message-interactive)
       (define-key km "\C-c\C-m" 'identica-redent)
+      (define-key km "r" 'identica-repeat)
       (define-key km "F" 'identica-favorite)
       (define-key km "\C-c\C-e" 'identica-erase-old-statuses)
       (define-key km "\C-m" 'identica-enter)
@@ -418,6 +447,7 @@ ur1ca, tighturl, tinyurl, toly, and google"
       (define-key km "i" 'identica-icon-mode)
       (define-key km "s" 'identica-scroll-mode)
       (define-key km "t" 'identica-toggle-proxy)
+      (define-key km "\C-k" 'identica-delete-notice)
       (define-key km "\C-c\C-p" 'identica-toggle-proxy)
       nil))
 
@@ -477,6 +507,10 @@ ur1ca, tighturl, tinyurl, toly, and google"
 (defvar identica-mode-hook nil
   "Identica-mode hook.")
 
+(defun identica-kill-buffer-function ()
+  (when (eq major-mode 'identica-mode)
+    (identica-stop)))
+
 (defun identica-mode ()
   "Major mode for Identica
 \\{identica-mode-map}"
@@ -488,15 +522,20 @@ ur1ca, tighturl, tinyurl, toly, and google"
   (use-local-map identica-mode-map)
   (setq major-mode 'identica-mode)
   (setq mode-name identica-mode-string)
+  (setq mode-line-buffer-identification
+	`(,(default-value 'mode-line-buffer-identification)
+	  (:eval (identica-mode-line-buffer-identification))))
+  (identica-update-mode-line)
   (set-syntax-table identica-mode-syntax-table)
-  (run-mode-hooks 'identica-mode-hook)
   (font-lock-mode -1)
   (if identica-soft-wrap-status
       (if (fboundp 'visual-line-mode)
           (visual-line-mode t)
 	(if (fboundp 'longlines-mode)
 	    (longlines-mode t))))
-  (identica-start))
+  (identica-start)
+  (add-hook 'kill-buffer-hook 'identica-kill-buffer-function)
+  (run-mode-hooks 'identica-mode-hook))
 
 ;;;
 ;;; Basic HTTP functions
@@ -624,8 +663,10 @@ SENTINEL represents the callback function to be called after the http
 response is completely retrieved. SENTINEL-ARGUMENTS is the list of
 arguments (if any) of the SENTINEL procedure."
   (or sentinel (setq sentinel 'identica-http-get-default-sentinel))
-  (let ((url (concat "http://" statusnet-server "/api/" method-class
-		     "/" method ".xml"
+  (let ((url (concat "http://" statusnet-server "/api/"
+		     (when (not (string-equal method-class "none"))
+		       (concat method-class "/" ))
+		       method ".xml"
 		     (when parameters
 		       (concat "?"
 			       (mapconcat
@@ -684,6 +725,12 @@ arguments (if any) of the SENTINEL procedure."
 			    #'identica-cache-status-datum
 			    (reverse (identica-xmltree-to-status
 				      body)))))
+            ; Shorten the timeline if necessary
+            (if (and identica-display-max-dents
+                     (> (safe-length identica-timeline-data)
+                        identica-display-max-dents))
+                (cl-set-nthcdr identica-display-max-dents
+                               identica-timeline-data nil))
 	    (identica-render-timeline)
 	    (if (> identica-new-dents-count 0)
 		(run-hooks 'identica-new-dents-hook))
@@ -695,25 +742,34 @@ arguments (if any) of the SENTINEL procedure."
 (defun identica-render-timeline ()
   (with-current-buffer (identica-buffer)
     (let ((point (point))
-	  (end (point-max)))
+	  (end (point-max))
+          (wrapped (cond (longlines-mode 'longlines-mode)
+                         (visual-line-mode 'visual-line-mode)
+                         (t nil))))
+
       (setq buffer-read-only nil)
       (erase-buffer)
+      (when wrapped (funcall wrapped -1))
       (mapc (lambda (status)
 	      (insert (identica-format-status
 		       status identica-status-format))
-	      (if (not identica-soft-wrap-status)
+	      (if (not wrapped)
 		  (progn
 		    (fill-region-as-paragraph
 		     (save-excursion (beginning-of-line) (point)) (point))))
-	      (insert "\n"))
+	      (insert "\n")
+	      (if identica-oldest-first
+		  (goto-char (point-min))))
 	    identica-timeline-data)
       (if (and identica-image-stack window-system)
 	  (clear-image-cache))
+      (when wrapped (funcall wrapped 1))
       (setq buffer-read-only t)
       (debug-print (current-buffer))
       (goto-char (+ point (if identica-scroll-mode (- (point-max) end) 0)))
       (identica-set-mode-string nil)
-      (setq identica-last-timeline-retrieved identica-method))))
+      (setq identica-last-timeline-retrieved identica-method)
+      (if transient-mark-mode (deactivate-mark)))))
 
 (defun identica-format-status (status format-str)
   (flet ((attr (key)
@@ -866,6 +922,7 @@ PARAMETERS is alist of URI parameters. ex) ((\"mode\" . \"view\") (\"page\" . \"
 				 "&")))))
 	 (url-package-name "emacs-identicamode")
 	 (url-package-version identica-mode-version)
+	 (url-request-extra-headers '(("Content-Length" . "0")))
 	 (url-show-status nil))
     (identica-set-proxy)
     (identica-set-auth url)
@@ -1024,7 +1081,7 @@ If STATUS-DATUM is already in DATA-VAR, return nil. If not, return t."
       (setq regex-index 0)
       (while regex-index
 	(setq regex-index
-	      (string-match "@\\([_[:word:]0-9]+\\)\\|!\\([_[:word:]0-9\-]+\\)\\|#\\([_[:word:]0-9\-]+\\)\\|\\(https?://[-_.!~*'()a-zA-Z0-9;/?:@&=+$,%#]+\\)"
+	      (string-match "@\\([_[:word:]0-9]+\\)\\|!\\([_[:word:]0-9\-]+\\)\\|#\\([_[:word:]0-9\-]+\\)\\|\\(ur1\.ca/[a-z0-9]+/?\\|https?://[-_.!~*'()[:word:]0-9\;/?:@&=+$,%#]+\\)"
 			    text
 			    regex-index))
 	(when regex-index
@@ -1194,21 +1251,26 @@ If STATUS-DATUM is already in DATA-VAR, return nil. If not, return t."
   (let ((buf (get-buffer-create "*identica-status-update-edit*")))
     (pop-to-buffer buf)
     (with-current-buffer buf
-      (identica-update-status-edit-mode)
-      (longlines-mode)
-      (make-local-variable 'identica-update-status-edit-method-class)
-      (make-local-variable 'identica-update-status-edit-method)
-      (make-local-variable 'identica-update-status-edit-parameters)
-      (make-local-variable 'identica-update-status-edit-reply-to-id)
+      (if (not (equal major-mode 'identica-update-status-edit-mode))
+          (progn
+            (identica-update-status-edit-mode)
+            (longlines-mode)
+            (make-local-variable 'identica-update-status-edit-method-class)
+            (make-local-variable 'identica-update-status-edit-method)
+            (make-local-variable 'identica-update-status-edit-parameters)
+            (make-local-variable 'identica-update-status-edit-reply-to-id)
+            (if (> (length parameters) 0)
+                (setq mode-line-format
+                      (cons (format "%s(%s) (%%i/140) " msgtype parameters)
+                            mode-line-format))
+              t (setq mode-line-format
+                      (cons (format "%s (%%i/140) " msgtype) mode-line-format)))))
       (setq identica-update-status-edit-method-class method-class)
       (setq identica-update-status-edit-method method)
       (setq identica-update-status-edit-parameters parameters)
       (setq identica-update-status-edit-reply-to-id reply-to-id)
       (message identica-update-status-edit-method-class)
       (insert init-str)
-      (if (> (length parameters) 0)
-          (setq mode-line-format (cons (format "%s(%s) (%%i/140) " msgtype parameters) mode-line-format))
-        t (setq mode-line-format (cons (format "%s (%%i/140) " msgtype) mode-line-format)))
       (message "Type C-c C-c to post status update (C-c C-k to cancel)."))))
 
 (defun identica-show-minibuffer-length (&optional beg end len)
@@ -1313,12 +1375,19 @@ this dictionary, only if identica-urlshortening-service is 'google.
 
 (defun identica-ur1ca-get (api longurl)
   "Shortens url through ur1.ca free service 'as in freedom'"
-  (with-temp-buffer
-    (call-process "curl" nil (current-buffer) nil "-s" (concat "-dlongurl=" longurl) api)
-    (goto-char (point-min))
-    (setq ur1short
-	  (if (search-forward-regexp "Your .* is: .*>\\(http://ur1.ca/[0-9A-Za-z].*\\)</a>" nil t)
-	      (match-string-no-properties 1)))))
+  (let* ((url-request-method "POST")
+	(url-request-extra-headers
+	 '(("Content-Type" . "application/x-www-form-urlencoded")))
+	(url-request-data (concat "longurl=" (url-hexify-string longurl)))
+	(buffer (url-retrieve-synchronously api)))
+    (with-current-buffer buffer
+      (goto-char (point-min))
+      (prog1
+	  (setq ur1short
+		(if (search-forward-regexp "Your .* is: .*>\\(http://ur1.ca/[0-9A-Za-z].*\\)</a>" nil t)
+		    (match-string-no-properties 1)
+		  (error "URL shortening service failed: %s" longurl)))
+	    (kill-buffer buffer)))))
 
 (defun identica-shortenurl-get (longurl)
   "Shortens url through a url shortening service"
@@ -1368,7 +1437,9 @@ this dictionary, only if identica-urlshortening-service is 'google.
     (setq identica-timer
 	  (run-at-time "0 sec"
 		       identica-timer-interval
-		       #'identica-timer-action action))))
+		       #'identica-timer-action action)))
+  (setq identica-active-mode t)
+  (identica-update-mode-line))
 
 (defun identica-stop ()
 "Stop Current network activitiy (if any) and the reload-timer."
@@ -1380,7 +1451,9 @@ this dictionary, only if identica-urlshortening-service is 'google.
   (identica-set-mode-string nil)
   (and identica-timer
        (cancel-timer identica-timer))
-  (setq identica-timer nil))
+  (setq identica-timer nil)
+  (setq identica-active-mode nil)
+  (identica-update-mode-line))
 
 (defun identica-get-timeline ()
   (if (not (eq identica-last-timeline-retrieved identica-method))
@@ -1419,6 +1492,12 @@ this dictionary, only if identica-urlshortening-service is 'google.
   (setq identica-method "replies")
   (setq identica-method-class "statuses")
   (identica-get-timeline))
+
+;; (defun identica-direct-messages-timeline ()
+;;   (interactive)
+;;   (setq identica-method "direct_messages")
+;;   (setq identica-method-class "none")
+;;   (identica-get-timeline))
 
 (defun identica-public-timeline ()
   (interactive)
@@ -1531,6 +1610,13 @@ this dictionary, only if identica-urlshortening-service is 'google.
 	  (identica-http-post "favorites/create" (number-to-string id))
 	  (message "Notice saved as favorite"))))
 
+(defun identica-repeat ()
+  (interactive)
+    (if (y-or-n-p "Do you want to repeat this notice? ")
+	(let ((id (get-text-property (point) 'id)))
+	  (identica-http-post "statuses/retweet" (number-to-string id))
+	  (message "Notice repeated"))))
+
 (defun identica-view-user-page ()
   (interactive)
   (let ((uri (get-text-property (point) 'uri)))
@@ -1641,6 +1727,121 @@ this dictionary, only if identica-urlshortening-service is 'google.
 (defun identica-get-context-url (id)
   "Generate status URL."
   (format "https://%s/conversation/%s" statusnet-server id))
+
+;; Icons
+;;; ACTIVE/INACTIVE
+(defconst identica-active-indicator-image
+  (when (image-type-available-p 'xpm)
+    '(image :type xpm
+	    :ascent center
+	    :data
+	    "/* XPM */
+static char * statusnet_xpm[] = {
+\"16 16 14 1\",
+\" 	c None\",
+\".	c #8F0000\",
+\"+	c #AB4040\",
+\"@	c #D59F9F\",
+\"#	c #E3BFBF\",
+\"$	c #CE8F8F\",
+\"%	c #C78080\",
+\"&	c #FFFFFF\",
+\"*	c #B96060\",
+\"=	c #DCAFAF\",
+\"-	c #C07070\",
+\";	c #F1DFDF\",
+\">	c #961010\",
+\",	c #9D2020\",
+\"    .......     \",
+\"   .........    \",
+\"  ...........   \",
+\" ....+@#$+....  \",
+\"....%&&&&&*.... \",
+\"...+&&&&&&&+... \",
+\"...=&&&&&&&$... \",
+\"...#&&&&&&&#... \",
+\"...=&&&&&&&@... \",
+\"...*&&&&&&&-... \",
+\"....@&&&&&&=... \",
+\" ....-#&#$;&>.. \",
+\" ..........,>.. \",
+\"  ............. \",
+\"    ............\",
+\"       .      ..\"};")))
+
+(defconst identica-inactive-indicator-image
+  (when (image-type-available-p 'xpm)
+    '(image :type xpm
+	    :ascent center
+	    :data
+	    "/* XPM */
+static char * statusnet_off_xpm[] = {
+\"16 16 13 1\",
+\" 	g None\",
+\".	g #5B5B5B\",
+\"+	g #8D8D8D\",
+\"@	g #D6D6D6\",
+\"#	g #EFEFEF\",
+\"$	g #C9C9C9\",
+\"%	g #BEBEBE\",
+\"&	g #FFFFFF\",
+\"*	g #A5A5A5\",
+\"=	g #E3E3E3\",
+\"-	g #B2B2B2\",
+\";	g #676767\",
+\">	g #747474\",
+\"    .......     \",
+\"   .........    \",
+\"  ...........   \",
+\" ....+@#$+....  \",
+\"....%&&&&&*.... \",
+\"...+&&&&&&&+... \",
+\"...=&&&&&&&$... \",
+\"...#&&&&&&&#... \",
+\"...=&&&&&&&@... \",
+\"...*&&&&&&&-... \",
+\"....@&&&&&&=... \",
+\" ....-#&#$&&;.. \",
+\" ..........>;.. \",
+\"  ............. \",
+\"    ............\",
+\"       .      ..\"};")))
+
+(let ((props
+       (when (display-mouse-p)
+	 `(local-map
+	   ,(purecopy (make-mode-line-mouse-map
+		       'mouse-2 #'identica-toggle-activate-buffer))
+	   help-echo "mouse-2 toggles automatic updates"))))
+  (defconst identica-modeline-active
+    (if identica-active-indicator-image
+	(apply 'propertize " "
+	       `(display ,identica-active-indicator-image ,@props))
+      " "))
+  (defconst identica-modeline-inactive
+    (if identica-inactive-indicator-image
+	(apply 'propertize "INACTIVE"
+	       `(display ,identica-inactive-indicator-image ,@props))
+      "INACTIVE")))
+
+  (make-local-variable 'identica-active-mode)
+  (setq identica-active-mode t)
+
+(defun identica-toggle-activate-buffer ()
+  (interactive)
+  (setq identica-active-mode (not identica-active-mode))
+  (if (not identica-active-mode)
+      (identica-stop)
+    (identica-start)))
+
+(defun identica-mode-line-buffer-identification ()
+  (if identica-active-mode
+      identica-modeline-active
+    identica-modeline-inactive))
+
+(defun identica-update-mode-line ()
+  "Update mode line."
+  (force-mode-line-update))
 
 ;;;###autoload
 (defun identica ()

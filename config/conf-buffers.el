@@ -47,16 +47,17 @@
 (require 'ibuffer)
 (setq ibuffer-saved-filter-groups
       (quote (("default"
-               ("Org" ;; all org-related buffers
-                (mode . org-mode))
+               ("ERC"   (mode . erc-mode))
+               ("LaTeX" ;; all org-related buffers
+                (mode . latex-mode))
                ("Mail"
                 (or  ;; mail-related buffers
                  (mode . message-mode)
                  (mode . mail-mode)
                  ;; etc.; all your mail related modes
                  ))
-               ("abci"
-                (filename . "public_html/abci2/"))
+               ("Org" ;; all org-related buffers
+                (mode . org-mode))
                ("Programming" ;; prog stuff not already in MyProjectX
                 (or
                  (mode . c-mode)
@@ -65,7 +66,8 @@
                  (mode . emacs-lisp-mode)
                  ;; etc
                  ))
-               ("ERC"   (mode . erc-mode))))))
+               ))))
+
 (add-hook 'ibuffer-mode-hook
           (lambda ()
             (ibuffer-switch-to-saved-filter-groups "default")))

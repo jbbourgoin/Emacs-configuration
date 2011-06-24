@@ -63,6 +63,8 @@
 ;; paredit-forward-barf-sexp (C-}) - Removes the last S-expression in the current list from that list by moving the closing delimiter.
 ;; paredit-backward-barf-sexp (C-{) - Removes the first S-expression in the current list from that list by moving the closing ((sic) opening?) delimiter.
 ;; paredit-wrap-sexp (M-() - Wraps the following S-expression in a list.
+
+
 (autoload 'paredit-mode "paredit"
   "Minor mode for pseudo-structurally editing Lisp code." t)
 (add-hook 'emacs-lisp-mode-hook       (lambda () (paredit-mode +1)))

@@ -76,6 +76,9 @@
 ;; Kill text between two delimiters, preserving structure.
 (require 'delim-kill)
 
+(setq-default show-trailing-whitespace t)
+(setq default-indicate-empty-lines t)
+
 ;;; unfill paragraph
 (defun jbb-unfill-paragraph ()
   "Does the opposite of fill-paragraph"

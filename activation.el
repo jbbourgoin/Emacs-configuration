@@ -29,7 +29,7 @@
 (require 'conf-print)
 ;;(require 'conf-vim-emulation)
 (require 'conf-wikipedia)
-(require 'conf-templates)
+;; (require 'conf-yasnippet)
 (require 'conf-markdown)
 
 ;;; mail & news
@@ -40,7 +40,7 @@
 
 
 ;;; multimédia
-;;(require 'conf-emms)
+;; (require 'conf-emms)
 (require 'conf-lilypond)
 
 ;;; web
@@ -48,18 +48,19 @@
 (require 'conf-w3m)
 
 ;;; chat
-(require 'conf-identica)
-;;(require 'conf-twitter)
-;;(require 'conf-jabber)
-;;(require 'conf-irc)
+;; (require 'conf-identica)
+;; (require 'conf-twitter)
+;; (require 'conf-jabber)
+;; (require 'conf-irc)
 
 ;;; développement
 (require 'conf-cedet)
 (require 'conf-c)
+(require 'conf-cobol)
 ;;(require 'conf-clojure)
 ;;(require 'conf-csharp)
 ;;(require 'conf-java)
-(require 'conf-xml)
+;; (require 'conf-nxhtml)
 (require 'conf-tex)
 ;;(require 'conf-haskell)
 (require 'conf-javascript)
@@ -68,8 +69,8 @@
 (require 'conf-perl)
 (require 'conf-python)
 (require 'conf-php)
-;;(require 'conf-scheme)
-(require 'sawfish)
+(require 'conf-scheme)
+;;(require 'sawfish)
 
 ;;; spécifiques aux OS :
 

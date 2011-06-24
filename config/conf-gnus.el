@@ -39,24 +39,22 @@
                                " "
                                imap-ssl-program-arguments)))
 
+;; (setq gnus-secondary-select-methods
+;;              '(
 
-
-(setq gnus-secondary-select-methods
-             '(
-
-               (nnimap "monsieur.camille"
-                      (nnimap-address "imap.gmail.com")
-                      (nnimap-server-port 993)
-                      (nnimap-authinfo-file "~/.emacs.d/prive/config/imap-authinfo")
-                      (nnimap-stream ssl)) ;; openssl : (nnimap-stream ssl) gnutls : (nnim... tls)
+;;                (nnimap "monsieur.camille"
+;;                       (nnimap-address "imap.gmail.com")
+;;                       (nnimap-server-port 993)
+;;                       (nnimap-authinfo-file "~/.emacs.d/prive/config/imap-authinfo")
+;;                       (nnimap-stream ssl)) ;; openssl : (nnimap-stream ssl) gnutls : (nnim... tls)
                
-               (nnimap "jeanbaptiste.bourgoin"
-                      (nnimap-address "imap.gmail.com")
-                      (nnimap-server-port 993)
-                      (nnimap-authinfo-file "~/.emacs.d/prive/config/imap-authinfo")
-                      (nnimap-stream ssl))
+;;                (nnimap "jeanbaptiste.bourgoin"
+;;                       (nnimap-address "imap.gmail.com")
+;;                       (nnimap-server-port 993)
+;;                       (nnimap-authinfo-file "~/.emacs.d/prive/config/imap-authinfo")
+;;                       (nnimap-stream ssl))
                
-               ))
+;;                ))
 ;;;;;;;;;;;;;;;;;;;;;;;;
 
 

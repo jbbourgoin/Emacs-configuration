@@ -39,8 +39,8 @@
 (server-start)
 
 
-;;(global-set-key (kbd "C-x C-c") 'save-buffers-kill-emacs)
-;;(global-set-key (kbd "C-x <f4>") 'save-buffers-kill-terminal)
+(global-set-key (kbd "C-x C-c") 'save-buffers-kill-emacs)
+(global-set-key (kbd "C-x <f4>") 'save-buffers-kill-terminal)
 
 (provide 'conf-emacs-server)
 ;;; conf-emacs-server.el ends here
