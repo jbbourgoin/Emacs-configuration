@@ -34,14 +34,18 @@
 (eval-when-compile
   (require 'cl))
 
+(load "/home/jbbourgoin/.emacs.d/public/lisp/cedet-1.0/common/cedet.el")
+
 (require 'ede)
 (require 'semantic)
 (require 'eieio)
 (require 'sr-speedbar)
 (global-ede-mode t)                      ; Enable the Project management system
-;;(semantic-load-enable-code-helpers)      ; Enable prototype help and smart completion 
+(setq semantic-load-turn-everything-on t)
+(require 'semantic-load)
+(semantic-load-enable-code-helpers)      ; Enable prototype help and smart completion 
 (setq semanticdb-default-save-directory "~/.emacs.d/semantic-cache/")
-;;(global-srecode-minor-mode 1)            ; Enable template insertion menu
+(global-srecode-minor-mode 1)            ; Enable template insertion menu
 ;; speedbar
 ;; sr-speedbar : la barre dans un buffer plutôt que dans une fenêtre
 (global-set-key (kbd "C-x p") 'sr-speedbar-toggle)

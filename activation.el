@@ -3,6 +3,10 @@
 ;; Jean-Baptiste Bourgoin ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+;;; hacks pour corriger des bugs
+(setq warning-suppress-types nil)
+
+
 ;;; INIT
 ;; ajouter dossiers de config au load-path :
 (setq load-path (cons "~/.emacs.d/public/config/" load-path))
@@ -59,8 +63,9 @@
 (require 'conf-cobol)
 ;;(require 'conf-clojure)
 ;;(require 'conf-csharp)
-;;(require 'conf-java)
-;; (require 'conf-nxhtml)
+(require 'conf-java)
+(require 'conf-scala)
+(require 'conf-nxhtml)
 (require 'conf-tex)
 ;;(require 'conf-haskell)
 (require 'conf-javascript)
