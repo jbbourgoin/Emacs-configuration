@@ -89,5 +89,9 @@
 
 (global-set-key [f5] 'jbb-unfill-paragraph)
 
+
+;;; undo tree
+(require 'undo-tree)
+
 (provide 'conf-edition)
 ;;; conf-edition.el ends here

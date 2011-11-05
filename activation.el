@@ -1,4 +1,4 @@
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Emacs 23 1999 - 2010   ;;
 ;; Jean-Baptiste Bourgoin ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -31,7 +31,7 @@
 (require 'conf-edition)
 (require 'conf-dict)
 (require 'conf-print)
-;;(require 'conf-vim-emulation)
+(require 'conf-vim-emulation)
 (require 'conf-wikipedia)
 ;; (require 'conf-yasnippet)
 (require 'conf-markdown)
@@ -65,7 +65,7 @@
 ;;(require 'conf-csharp)
 (require 'conf-java)
 (require 'conf-scala)
-(require 'conf-nxhtml)
+;;(require 'conf-nxhtml)
 (require 'conf-tex)
 ;;(require 'conf-haskell)
 (require 'conf-javascript)
