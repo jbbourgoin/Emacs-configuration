@@ -47,7 +47,7 @@
 (when (eq system-type 'gnu/linux)
   (progn
     (setq browse-url-browser-function 'browse-url-generic
-          browse-url-generic-program "conkeror")))
+          browse-url-generic-program "firefox")))
 
 (provide 'conf-extbrowser)
 ;;; conf-extbrowser.el ends here
