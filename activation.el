@@ -31,8 +31,8 @@
 (require 'conf-print)
 (require 'conf-vim-emulation)
 (require 'conf-wikipedia)
-;;(require 'conf-yasnippet)
-;;(require 'conf-markdown)
+(require 'conf-yasnippet)
+(require 'conf-markdown)
 
 ;;; mail & news
 (setq gnus-init-file "~/.emacs.d/public/config/conf-gnus.el")
@@ -51,18 +51,18 @@
 ;;; développement
 (require 'conf-cedet)
 (require 'conf-c)
-(require 'conf-cobol)
+;;(require 'conf-cobol)
 ;;(require 'conf-clojure)
-(require 'conf-java)
-(require 'conf-scala)
-(require 'conf-tex)
+;;(require 'conf-java)
+;;(require 'conf-scala)
+;; (require 'conf-tex) ;bug avec la version elpa à corriger
 (require 'conf-javascript)
 (require 'conf-lisp)
 ;;(require 'conf-parrot)
 (require 'conf-perl)
-(require 'conf-python)
+;;(require 'conf-python)
 (require 'conf-php)
-(require 'conf-scheme)
+;;(require 'conf-scheme)
 
 ;;; desactivations diverses :
 

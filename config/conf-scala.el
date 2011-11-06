@@ -34,8 +34,8 @@
 (eval-when-compile
   (require 'cl))
 
-(load "~/.emacs.d/public/lisp/scala/scala-mode.el")
-(load "~/.emacs.d/public/lisp/sbt.el")
+(load "~/.emacs.d/public/lisp/manual/scala/scala-mode.el")
+(load "~/.emacs.d/public/lisp/manual/sbt.el")
 
 (provide 'conf-scala)
 ;;; conf-scala.el ends here
