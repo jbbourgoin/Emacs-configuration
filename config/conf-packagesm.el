@@ -19,15 +19,15 @@
   (require 'cl))
 
 
-;;; AUTO-INSTALL
-;;; installer un paquet : M-x auto-install-from-emacswiki
-(require 'auto-install)
-;; répertoire de téléchargement des fichiers elisp
-(setq auto-install-directory "~/.emacs.d/public/lisp/")
-;; met à jour la liste emacs-wiki au démarrage d'emacs
-(setq auto-install-update-emacswiki-package-name t)
-;; utilise wget pour le téléchargement
-(setq auto-install-use-wget nil)
+;; ;;; AUTO-INSTALL
+;; ;;; installer un paquet : M-x auto-install-from-emacswiki
+;; (require 'auto-install)
+;; ;; répertoire de téléchargement des fichiers elisp
+;; (setq auto-install-directory "~/.emacs.d/public/lisp/")
+;; ;; met à jour la liste emacs-wiki au démarrage d'emacs
+;; (setq auto-install-update-emacswiki-package-name t)
+;; ;; utilise wget pour le téléchargement
+;; (setq auto-install-use-wget nil)
 
 ;;; ELPA
 ;;; installer un paquet : M-x package-list-packages
@@ -36,20 +36,17 @@
 ;;; x : install
 (when
     (load
-     (expand-file-name "~/.emacs.d/elpa/package.el"))
+     (expand-file-name "~/.emacs.d/public/lisp/package.el"))
   (package-initialize))
-;; Add the GNU Package Archive
-(setq package-archives
-             '(("gnu" . "http://elpa.gnu.org/packages/")))
-;; Add the original Emacs Lisp Package Archive
-(add-to-list 'package-archives
-             '("elpa" . "http://tromey.com/elpa/"))
-;; Add the user-contributed repository
-(add-to-list 'package-archives
-             '("marmalade" . "http://marmalade-repo.org/packages/"))
 
+;; Personnal directory
+(setq package-user-dir "~/.emacs.d/public/lisp/elpa/")
+;; Packages Archives
+(setq package-archives '(("ELPA" . "http://tromey.com/elpa/") 
+			 ("gnu" . "http://elpa.gnu.org/packages/")
+			 ("marmalade" . "http://marmalade-repo.org/packages/")))
 ;;; web vcs (pour nxhtml)
-(require 'web-vcs)
+;;(require 'web-vcs)
 
 (provide 'conf-packagesm)
 ;;; conf-packagesm ends here

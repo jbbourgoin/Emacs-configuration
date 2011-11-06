@@ -36,8 +36,7 @@
 
 ;;; switch-window de Dim permet de passer d'une fenêtre à une autre
 ;;; avec C-x o grâce à un numéro.
-;;(load "~/.emacs.d/lisp/switch-window.el")
-;;(require 'dim-switch-window)
+(require 'switch-window)
 
 (provide 'conf-window)
 ;;; conf-window.el ends here

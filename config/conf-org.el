@@ -55,10 +55,6 @@
     (set-face-underline-p 'org-link t))
   (iimage-mode))
 
-;; météo via google
-(require 'google-weather)
-(require 'org-google-weather)
-
 ;; intégration au diary
 (setq org-agenda-include-diary t)
 
