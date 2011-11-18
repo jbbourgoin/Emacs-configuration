@@ -29,7 +29,7 @@
 (require 'conf-edition)
 (require 'conf-dict)
 (require 'conf-print)
-(require 'conf-vim-emulation)
+;;(require 'conf-vim-emulation)
 (require 'conf-wikipedia)
 (require 'conf-yasnippet)
 (require 'conf-markdown)

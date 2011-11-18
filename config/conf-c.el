@@ -36,7 +36,7 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; mode d'indentation ;;;
 (setq c-mode-hook '(lambda () 
-                     (c-set-style "k&r") ; k&r, gnu etc.
+                     (c-set-style "gnu") ; k&r, gnu etc.
                      (c-toggle-auto-hungry-state 1))
       comment-multi-line t)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

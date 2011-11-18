@@ -36,7 +36,21 @@
 
 ;;; switch-window de Dim permet de passer d'une fenêtre à une autre
 ;;; avec C-x o grâce à un numéro.
-(require 'switch-window)
+;; (require 'switch-window-autoloads)
+
+;;; window number permet de changer de window avec M-WINDOW_NUMBER
+(require 'window-number)
+(window-number-mode)
+(window-number-meta-mode)
+
+;;; Special Windows :
+
+;;; *compilation*
+(setq special-display-buffer-names
+      `(("*compilation*" . ((name . "*compilation*")
+                            ,@default-frame-alist
+                            (left . (- 1))
+                            (top . 0)))))
 
 (provide 'conf-window)
 ;;; conf-window.el ends here
