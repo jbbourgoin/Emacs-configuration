@@ -41,9 +41,9 @@
 ;; run REPL with *M-x run-lisp*
 ;; ABCL : "java -jar c:/Users/jbbourgoin/Applications/abcl/abcl.jar"
 ;; CLISP : "/usr/bin/clisp"
-(when (eq system-type 'cygwin)
+(when (eq system-type 'windows-nt)
   (setq inferior-lisp-program
-        "/usr/bin/clisp")) ; _your Lisp system_
+        "c:/Program Files/Steel Bank Common Lisp/1.0.53/sbcl.exe")) ; _your Lisp system_
 (when (eq system-type 'gnu/linux)
   (setq inferior-lisp-program
         "/usr/bin/clisp")) ; _your Lisp system_

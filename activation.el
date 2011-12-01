@@ -43,7 +43,7 @@
 
 ;;; web
 (require 'conf-extbrowser)
-(require 'conf-w3m)
+;(require 'conf-w3m)
 
 ;;; chat
 ;; (require 'conf-irc)

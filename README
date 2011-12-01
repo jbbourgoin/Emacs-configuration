@@ -4,7 +4,7 @@ This is my personnal configuration of emacs, you can use it, reuse it, abuse it.
 
 2) in "public" directory : git clone git://github.com:jbbourgoin/Emacs-configuration.git
 
-3) in ~/.emacs.d/init.el : (load "~/.emacs.d/public/activation.el)
+3) in ~/.emacs.d/init.el : (load "~/.emacs.d/public/activation.el")
 
 ---
 
