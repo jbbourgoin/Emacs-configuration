@@ -1,0 +1,71 @@
+perldoc SDL
+perldoc SDL | man
+git
+git
+cd /Progra~1/Git/bin
+ls
+git
+git
+exit
+git
+cd ../..
+cd ~/.emacs.d
+cd public/
+ls
+git commit -a -m "maj 9-12-2011"
+git (commit -a -m "maj 9-12-2011")
+ls
+perldoc SDML | less
+perldoc SDML | less
+perldoc SDML | less
+perldoc SDL
+perldoc SDL | less
+q
+perldoc SDL | less
+perldoc SDL | woman
+ls
+less COPYING 
+ls | grep COP
+perldoc SDL >> *perldoc*
+ls
+perldoc SDL >> *perldoc*
+perldoc SDL >> #<buffer *perldoc*>
+perldoc SDL >> #<buffer *scratch*>
+perldoc SDL > #<buffer *scratch*>
+ls
+git
+git
+git
+git
+alis git 'c:/Program Files/Git/bin/git.exe'
+alias git 'c:/Program Files/Git/bin/git.exe'
+git
+alias git 'c:/Progra~1/Git/bin/git.exe'
+git
+ls
+cd ../..
+cd ~
+ls
+cd .emacs.d/public/
+git commit -a -m "maj 9-12-2011"
+exit
+ls
+alias gitcom 'git commit -a -m "maj 9-12-2011'
+alias gitcom 'c:/Progra~1/Git/git.exe commit -a -m $1'
+xs ../..
+cd ..
+gitcom "mal 9-12-2011"
+exit
+win-gitcom "maj 9-12-2011"
+c:/Progra~1/bin/Git/exitgit.exe: command not found
+exit
+cd ..
+win-gitcom "maj 9-12-2011"
+alias git 'c:/Progra~1/Git/bin/git.exe'
+git push origin master
+alias git 'c:/Progra~1/Git/bin/git.exe $1'
+git push origin master
+git
+cd ..
+git push origin master
+perl -v

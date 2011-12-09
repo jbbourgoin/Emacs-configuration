@@ -1,0 +1,32 @@
+#+TITLE: Astuces pour Emacs
+
+* Eshell
+
+Ma configuration d'Emacs inclue un enrobage de la fonction perldoc permettant un usage plus agréable sous environnement Windows.
+
+#+BEGIN_SRC lisp
+(defun perldoc (man-args)
+  (interactive "sPerldoc: ")
+  (require 'man)
+  (let ((manual-program "perldoc"))
+    (man man-args)))
+
+(defun eshell/perldoc (&rest args)
+  "Like `eshell/man', but invoke `perldoc'."
+  (funcall 'perldoc (apply 'eshell-flatten-and-stringify args)))
+
+(provide 'eshell_perldoc)
+#+END_SRC
+
+Grâce aux redirection d'eshell elle permet facilement d'avoir dans un buffer *scratch* par exemple, une copie de la doc que l'on souhaite consulter :
+
+#+BEGIN_SRC sh
+$ perldoc SDL > #<buffer *scratch*>
+#+END_SRC
+
+On peut même enchaîner les documents à la suite :
+
+#+BEGIN_SRC sh
+$ perldoc SDL >> #<buffer *scratch*>
+$ perldoc SDLx::App >> #<buffer *scratch*>
+#+END_SRC
