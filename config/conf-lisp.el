@@ -48,10 +48,6 @@
   (setq inferior-lisp-program
         "/usr/bin/clisp")) ; _your Lisp system_
 
-;;; SLIME : (run with : M-x slime)
-(require 'slime)
-(slime-setup)
-
 ;;; paredit
 ;; paredit-open-list (() - Inserts a balanced parenthesis pair.
 ;; paredit-close-list (M-)) - Moves past one closing parenthesis and reindents.
