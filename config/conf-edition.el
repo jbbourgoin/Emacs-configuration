@@ -69,6 +69,22 @@
 ;; (set-language-environment 'french)
 (prefer-coding-system 'utf-8)
 
+;; régler les fin de lignes
+(defun unix-file ()
+  "Change the current buffer to Latin 1 with Unix line-ends."
+  (interactive)
+  (set-buffer-file-coding-system 'utf-8-unix t))
+
+(defun dos-file ()
+  "Change the current buffer to Latin 1 with DOS line-ends."
+  (interactive)
+  (set-buffer-file-coding-system 'utf-8-dos t))
+
+(defun mac-file ()
+  "Change the current buffer to Latin 1 with Mac line-ends."
+  (interactive)
+  (set-buffer-file-coding-system 'utf-8-mac t))
+
 ;;;en mode "complete" il fournit un grand nombre de complétions
 (setq tab-always-indent 'complete)
 
@@ -86,9 +102,6 @@
   (let
       ((fill-column (point-max)))
     (fill-paragraph nil)))
-
-(global-set-key [f5] 'jbb-unfill-paragraph)
-
 
 ;;; undo tree
 (require 'undo-tree)

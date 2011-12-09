@@ -46,23 +46,20 @@
 ;(require 'conf-w3m)
 
 ;;; chat
-;; (require 'conf-irc)
+;;(require 'conf-irc)
 
 ;;; développement
 (require 'conf-cedet)
 (require 'conf-c)
-;;(require 'conf-cobol)
-;;(require 'conf-clojure)
-;;(require 'conf-java)
-;;(require 'conf-scala)
-;; (require 'conf-tex) ;bug avec la version elpa à corriger
+;;(require 'conf-tex) ;bug avec la version elpa à corriger
 (require 'conf-javascript)
 (require 'conf-lisp)
 ;;(require 'conf-parrot)
 (require 'conf-perl)
-;;(require 'conf-python)
 (require 'conf-php)
-;;(require 'conf-scheme)
+(require 'conf-xml) ; XML & HTML conf
+(require 'conf-yaml)
+(require 'conf-git)
 
 ;;; desactivations diverses :
 

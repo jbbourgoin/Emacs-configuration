@@ -48,24 +48,20 @@
 (setq ibuffer-saved-filter-groups
       (quote (("default"
                ("ERC"   (mode . erc-mode))
-               ("LaTeX" ;; all org-related buffers
-                (mode . latex-mode))
+               ("LaTeX" (mode . latex-mode))
                ("Mail"
                 (or  ;; mail-related buffers
                  (mode . message-mode)
-                 (mode . mail-mode)
-                 ;; etc.; all your mail related modes
-                 ))
+                 (mode . mail-mode)))
                ("Org" ;; all org-related buffers
                 (mode . org-mode))
-               ("Programming" ;; prog stuff not already in MyProjectX
-                (or
-                 (mode . c-mode)
-                 (mode . perl-mode)
-                 (mode . python-mode)
-                 (mode . emacs-lisp-mode)
-                 ;; etc
-                 ))
+               ("C" (mode . c-mode))
+               ("Lisp" (or
+                        (mode . emacs-lisp-mode)
+                        (mode . lisp-mode)))
+               ("Perl" (mode . cperl-mode))
+               ("XML" (mode . nxml-mode))
+               ("Dired" (mode . dired-mode))
                ))))
 
 (add-hook 'ibuffer-mode-hook

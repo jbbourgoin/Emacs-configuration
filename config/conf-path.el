@@ -46,6 +46,9 @@
 ;;; Set localized PATH for Emacs.
 (if (fboundp 'my-add-path)
     (let ((my-paths (list
+                     "/MinGW/bin/"
+                     "/MinGW/msys/1.0/local/bin"
+                     "/strawberry/perl/bin"
                      "~/Applications/bin"
 		     "~/.emacs.d/public/bin/"
                      "~/.emacs.d/applications/bin/"
@@ -67,7 +70,11 @@
 ;; pour recomposer *info* évaluer : (setq Info-dir-contents nil)
 (require 'info)
 (setq Info-directory-list
-      (append '("~/.info")
+      (append '("~/.info"
+                "/MinGW/share/info/"
+                "/MinGW/msys/1.0/local/share/info/"
+                "~/.emacs.d/public/lisp/manual/geiser/doc/"
+                )
               Info-default-directory-list
               Info-directory-list))
 

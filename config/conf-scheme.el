@@ -35,16 +35,18 @@
   (require 'cl))
 
 ;;;::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: scheme-mode ;;;
-(when (eq system-type 'cygwin)
-  (setq scheme-program-name "/cygdrive/c/Devel/Racket/Racket.exe"))
+(when (eq system-type 'windows-nt)
+  (setq scheme-program-name "/Program Files/Racket/Racket.exe"))
 (when (eq system-type 'gnu/linux)
   (setq scheme-program-name "/usr/bin/racket"))
 (add-hook 'scheme-mode-hook       (lambda () (paredit-mode +1)))
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;; Geiser (quand racket ou guile 2) :
-;; (load-file "~/.emacs.d/public/lisp/geiser/elisp/geiser.el")
-;; (add-hook 'geiser-mode-hook       (lambda () (paredit-mode +1)))
+(load-file "~/.emacs.d/public/lisp/manual/geiser/elisp/geiser.el")
+(add-hook 'geiser-mode-hook       (lambda () (paredit-mode +1)))
+(setq geiser-active-implementations '(racket))
+
 
 (provide 'conf-scheme)
 ;;; conf-scheme.el ends here

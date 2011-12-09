@@ -42,27 +42,21 @@
 ;; >>>  means insert at point - this works when redirecting to a
 ;;        buffer or to an open file
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(setq eshell-directory-name "~/.emacs.d/eshell")
+(setq eshell-directory-name "~/.emacs.d/public/eshell")
 ;; PROMPT
 ;; saute une ligne entre le chemin et le prompt :
 (setq eshell-prompt-function
       (lambda ()
         (concat (eshell/pwd) "\n" (if (= (user-uid) 0) " # " " $ "))))
-;; charger de nouvelles fonctions
-;;(require 'eshell_clear)
-(require 'eshell_bmk)
-;; sauver l'historique à la fermeture
-(setq eshell-save-history-on-exit t)
-;; FONCTION OPEN
-;; $ op * :
-;; $ op . : ouvre Explorer dans le dossier courant
-;; $ op file.doc : ouvre le fichier dans le lecteur doc système etc.
-(defun eshell/op (FILE)
-  "Invoke (w32-shell-execute \"Open\" FILE) and substitute slashes for backslashes"
-  (w32-shell-execute "Open" (substitute ?\\ ?/ (expand-file-name FILE))))
-;;; less
-(require 'less)
 
+;; sauver l'historique � la fermeture
+(setq eshell-save-history-on-exit t)
+
+;;; Nouvelles fonctions
+(require 'eshell_less)
+(require 'eshell_bmk)
+(when (eq system-type 'windows-nt)
+  (require 'eshell_op))
 
 (provide 'conf-eshell)
 ;;; conf-eshell.el ends here
