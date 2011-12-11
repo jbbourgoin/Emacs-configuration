@@ -69,3 +69,5 @@ git
 cd ..
 git push origin master
 perl -v
+cd ../../../../Programmes/Mazurka/
+perl bin/app.pl 

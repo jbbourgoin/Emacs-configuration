@@ -1,5 +1,8 @@
 #+TITLE: Astuces pour Emacs
 
+* Elisp
+Emacs embarque un REPL pour Elisp : =M-x ielm=.
+
 * Eshell
 
 Ma configuration d'Emacs inclue un enrobage de la fonction perldoc permettant un usage plus agréable sous environnement Windows.
