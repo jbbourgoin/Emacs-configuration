@@ -1,0 +1,4 @@
+#name : Insérer une tirade
+#contributor: Jean-Baptiste Bourgoin
+# --
+**- ${1:personnage}** $0

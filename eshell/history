@@ -71,3 +71,10 @@ git push origin master
 perl -v
 cd ../../../../Programmes/Mazurka/
 perl bin/app.pl 
+chmod conversion.pl 
+chmod +x conversion.pl 
+./conversion.pl 
+./conversion.pl 
+./conversion.pl 
+./conversion.pl 
+node helloworld.js 

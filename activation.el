@@ -51,7 +51,7 @@
 ;;; développement
 (require 'conf-cedet)
 (require 'conf-c)
-;;(require 'conf-tex) ;bug avec la version elpa à corriger
+(require 'conf-tex) ;bug avec la version elpa à corriger
 (require 'conf-javascript)
 (require 'conf-lisp)
 ;;(require 'conf-parrot)

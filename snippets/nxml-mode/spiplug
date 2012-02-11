@@ -1,0 +1,14 @@
+#contributor : Jean-Baptiste Bourgoin
+#name : <plugin>...</plugin>
+# --
+<plugin>
+  <nom>${1:nom}</nom>
+  <auteur>Jean-Baptiste Bourgoin</auteur>
+  <licence>GNU/GPL</licence>
+  <version>${2:version}</version>
+  <description>
+    $0
+  </description>
+  <etat>dev</etat>
+  <prefix>${3:prefix}</prefix>
+</plugin>

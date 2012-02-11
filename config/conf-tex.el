@@ -36,8 +36,8 @@
 
 ;; AUCTEX
 
-(load "auctex.el" nil t t)
-(load "preview-latex.el" nil t t)
+(load "auctex-autoloads.el" nil t t)
+(load "preview.el" nil t t)
 
 (provide 'conf-tex)
 ;;; conf-tex.el ends here
