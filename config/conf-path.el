@@ -74,6 +74,7 @@
                 "/MinGW/share/info/"
                 "/MinGW/msys/1.0/local/share/info/"
                 "~/.emacs.d/public/lisp/manual/geiser/doc/"
+                "~/.emacs.d/public/info/"
                 )
               Info-default-directory-list
               Info-directory-list))
