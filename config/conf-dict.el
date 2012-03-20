@@ -66,6 +66,8 @@ to browser. If a region is active (a phrase), lookup that phrase."
 
 ;;; ispell
 ;; dictionnaire en français
+(when (eq system-type 'windows-nt)
+  (setq ispell-program-name "c:/Program Files/Aspell/bin/aspell.exe"))
 (when (eq system-type 'cygwin)
   (setq ispell-program-name "/cygdrive/c/Program Files/Aspell/bin/aspell.exe"))
 (when (eq system-type 'gnu/linux)

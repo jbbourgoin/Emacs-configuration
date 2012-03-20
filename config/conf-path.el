@@ -46,17 +46,15 @@
 ;;; Set localized PATH for Emacs.
 (if (fboundp 'my-add-path)
     (let ((my-paths (list
-                     "/MinGW/bin/"
-                     "/MinGW/msys/1.0/local/bin"
-                     "/strawberry/perl/bin"
                      "~/Applications/bin"
 		     "~/.emacs.d/public/bin/"
-                     "~/.emacs.d/applications/bin/"
-                     "~/.perl6/bin/"
                      )))
       (dolist (path-to-add my-paths (getenv "PATH"))
         (my-add-path path-to-add))))
 
+
+(setenv "PATH" (concat (getenv "PATH") ":~/.emacs.d/public/bin/"))
+(setq exec-path (append exec-path '("~/.emacs.d/public/bin/")))
 
 ;;;;;;   répertoires
 ;; ajouter .emacs.d/lisp ainsi que tous ses sous-répertoires au load-path :
