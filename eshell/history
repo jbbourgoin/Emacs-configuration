@@ -79,3 +79,12 @@ chmod +x conversion.pl
 ./conversion.pl 
 node helloworld.js 
 ls ~/.emacs.d/gnuwin32/bin/
+cd .emacs.d/public/lisp/manual/
+ls
+cd
+cd Documents/
+8g test.go 
+ls
+8l test.8
+ls
+./8.out 

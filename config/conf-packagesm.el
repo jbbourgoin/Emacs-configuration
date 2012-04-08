@@ -42,9 +42,14 @@
 ;; Personnal directory
 (setq package-user-dir "~/.emacs.d/public/lisp/elpa/")
 ;; Packages Archives
-(setq package-archives '(("ELPA" . "http://tromey.com/elpa/") 
-			 ("gnu" . "http://elpa.gnu.org/packages/")
-			 ("marmalade" . "http://marmalade-repo.org/packages/")))
+(setq package-archives '(("ELPA" . "http://tromey.com/elpa/")))
+(add-to-list 'package-archives
+             '("melpa" . "http://melpa.milkbox.net/packages/") t)
+(add-to-list 'package-archives
+             '("gnu" . "http://elpa.gnu.org/packages/") t)
+(add-to-list 'package-archives
+             '("marmalade" . "http://marmalade-repo.org/packages/") t)
+
 ;;; web vcs (pour nxhtml)
 ;;(require 'web-vcs)
 
