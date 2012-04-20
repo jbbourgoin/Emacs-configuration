@@ -60,7 +60,7 @@
 (require 'conf-xml) ; XML & HTML conf
 (require 'conf-yaml)
 (require 'conf-git)
-(require 'conf-go)
+;;(require 'conf-go)
 
 ;;; desactivations diverses :
 
