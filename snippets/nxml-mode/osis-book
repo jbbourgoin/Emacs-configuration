@@ -1,0 +1,32 @@
+#contributor : JBB
+#name : OSIS Book
+#group : OSIS
+# --
+<?xml version="1.0" encoding="UTF-8"?>
+
+<osis xsi:schemaLocation="http://www.bibletechnologies.net/2003/OSIS/namespace 
+      http://www.bibletechnologies.net/osisCore.2.1.1.xsd" 
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+      xmlns="http://www.bibletechnologies.net/2003/OSIS/namespace">
+
+  <osisText osisRefWork="book" xml:lang="${1:en}" osisIDWork="${2:WorkID}">
+    <header>
+      <work osisWork="${2:WorkID}">
+        <title>${3:title}</title>
+        <creator role="aut">${4:Author name}</creator>
+      </work>
+      <work osisWork="Bible">
+        <refSystem>Bible</refSystem>
+      </work>
+    </header>
+
+    <div type="book" osisID="${5:BookTitle}">
+      <title>${5:BookTitle}</title>
+      <title type="x-author">${6:AuthorName}</title>
+      <p>${7:Copyright}</p>
+
+      $8
+      
+    </div>
+  </osisText>
+</osis>

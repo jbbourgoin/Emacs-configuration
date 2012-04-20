@@ -162,6 +162,81 @@
      (format "\\%s{%s}" path desc))
     )))
 
+;;; XELATEX
+
+(add-to-list 'org-export-latex-classes
+             '("xetex-article"
+               "\\documentclass[12pt,a4paper]{article}
+\\usepackage{xunicode}
+\\usepackage{fontspec}
+\\usepackage{xltxtra}
+\\setmainfont[Mapping=tex-text]{Linux Libertine O}
+\\usepackage[latin, french]{babel}
+\\usepackage{textcomp}
+\\usepackage{url}
+\\usepackage{verse}
+\\usepackage{tocbibind}
+\\usepackage{multind}
+\\usepackage{hyperref}
+\\usepackage{color}
+\\usepackage{xcolor}
+\\usepackage{fontspec}
+\\setromanfont[Mapping=tex-text, Numbers=OldStyle]{Linux Libertine O}
+\\usepackage{geometry}
+\\pagestyle{empty}
+\\title{}
+      [NO-DEFAULT-PACKAGES]
+      [NO-PACKAGES]"
+     ("\\section{%s}" . "\\section*{%s}")
+     ("\\subsection{%s}" . "\\subsection*{%s}")
+     ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+     ("\\paragraph{%s}" . "\\paragraph*{%s}")
+     ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
+
+;;; use xelatex instead of latex :
+
+(setq org-latex-to-pdf-process 
+  '("xelatex -interaction nonstopmode %f"
+     "xelatex -interaction nonstopmode %f")) ;; for multiple passes
+
+;; BABEL
+
+(setq org-ditaa-jar-path "~/.emacs.d/public/bin/ditaa0_9.jar")
+(setq org-plantuml-jar-path "~/java/plantuml.jar")
+
+(add-hook 'org-babel-after-execute-hook 'bh/display-inline-images 'append)
+
+; Make babel results blocks lowercase
+(setq org-babel-results-keyword "results")
+
+(defun bh/display-inline-images ()
+  (condition-case nil
+      (org-display-inline-images)
+    (error nil)))
+
+(org-babel-do-load-languages
+ (quote org-babel-load-languages)
+ (quote ((emacs-lisp . nil)
+         (dot . t)
+         (ditaa . t)
+         (R . t)
+         (python . nil)
+         (ruby . nil)
+         (gnuplot . t)
+         (clojure . nil)
+         (sh . nil)
+         (ledger . t)
+         (org . t)
+         (plantuml . t)
+         (latex . t))))
+
+; Do not prompt to confirm evaluation
+; This may be dangerous - make sure you understand the consequences
+; of setting this -- see the docstring for details
+(setq org-confirm-babel-evaluate nil)
+
+; Use fundamental mode when editing plantuml blocks with C-c '
+(add-to-list 'org-src-lang-modes (quote ("plantuml" . fundamental)))
 
 (provide 'conf-org)
 ;;; conf-org.el ends here

@@ -88,3 +88,19 @@ ls
 8l test.8
 ls
 ./8.out 
+man xml2gbs
+xml2gbs DominusJesus.xml congrefoi
+ls
+mv DominusJesus.xml congrefoi
+mv congrefoi congrefoi.xml
+xml2gbs congrefoi.xml congrefoi
+xml2gbs congrefoi.xml congrefoi
+ls
+touch congrefoi.conf
+xml2gbs congrefoi.xml congrefoi
+mv dimanche.tex jours/
+mv lundi.tex jours/
+cd jours/
+cd ..
+ls
+rm index-perso.ist index-perso.ind
