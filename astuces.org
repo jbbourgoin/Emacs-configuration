@@ -33,3 +33,7 @@ On peut même enchaîner les documents à la suite :
 $ perldoc SDL >> #<buffer *scratch*>
 $ perldoc SDLx::App >> #<buffer *scratch*>
 #+END_SRC
+
+* Replace & regexp
+
+C-q C-j : retour chariot

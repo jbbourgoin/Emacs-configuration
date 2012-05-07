@@ -1,5 +1,5 @@
-;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; Emacs 23 1999 - 2010   ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Emacs 23 1999 - 2012   ;;
 ;; Jean-Baptiste Bourgoin ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -10,59 +10,23 @@
 ;; ajouter dossiers de config au load-path :
 (setq load-path (cons "~/.emacs.d/public/config/" load-path))
 (setq load-path (cons "~/.emacs.d/prive/config/" load-path))
-(require 'conf-packagesm)
-(require 'conf-path)
+(require 'conf-init)
 
-;;; emacs
-(require 'conf-buffers)
-(require 'conf-dired)
-(require 'conf-emacs-server)
-(require 'conf-interface)
-(require 'conf-mode-line)
-(require 'conf-window)
-(require 'conf-org)
-
-;;; terminal
-(require 'conf-eshell)
-
-;;; édition
-(require 'conf-edition)
-(require 'conf-dict)
-(require 'conf-print)
-;;(require 'conf-vim-emulation)
-(require 'conf-wikipedia)
-(require 'conf-yasnippet)
-(require 'conf-markdown)
-
-;;; mail & news
+;;; conf générale
+(require 'conf-commun)
+(require 'conf-modes-divers)
 (setq gnus-init-file "~/.emacs.d/public/config/conf-gnus.el")
-(require 'conf-mail)
 
-;;; multimédia
-(require 'conf-lilypond)
-
-;;; web
-(require 'conf-extbrowser)
-;(require 'conf-w3m)
-
-;;; chat
-;;(require 'conf-irc)
-
-;;; développement
-(require 'conf-cedet)
+;;; modes spécifiques
+(require 'conf-org)
+(require 'conf-eshell)
 (require 'conf-c)
 (require 'conf-tex) ;bug avec la version elpa à corriger
 (require 'conf-javascript)
 (require 'conf-lisp)
-;;(require 'conf-parrot)
 (require 'conf-perl)
 (require 'conf-php)
-(require 'conf-xml) ; XML & HTML conf
-(require 'conf-yaml)
-(require 'conf-git)
-;;(require 'conf-go)
-
-;;; desactivations diverses :
+(require 'conf-go)
 
 ;; pde active ido, le désactiver par défaut :
 (ido-mode 1)

@@ -104,3 +104,6 @@ cd jours/
 cd ..
 ls
 rm index-perso.ist index-perso.ind
+touch alias prompt divers
+ls
+gorun test.go
