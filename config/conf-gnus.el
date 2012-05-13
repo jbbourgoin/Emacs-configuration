@@ -123,7 +123,3 @@
 ;;(add-hook 'gnus-message-setup-hook 'mml-secure-message-sign-pgpmime) ; signer automatiquement
 ;;;;;;;;;;;
 
-
-;;; gravatars
-(require 'gravatar)
-(require 'gnus-gravatar)
