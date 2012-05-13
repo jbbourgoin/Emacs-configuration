@@ -107,3 +107,16 @@ rm index-perso.ist index-perso.ind
 touch alias prompt divers
 ls
 gorun test.go
+touch style.css footer.org header.org
+ls
+cd ../org/
+ls
+mv 2012/05_07_eglise.org 2012_05_07_eglise.org
+ls
+ls 2012/
+rm -r 2012/
+ls
+ls ../lib/
+ls
+mv ../lib/*.org .
+ls

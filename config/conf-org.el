@@ -5,12 +5,6 @@
 
 (require 'org-install)
 
-;; Including all org files from a directory into the agenda
-(setq org-agenda-files
-      '("~/.emacs.d/public/documents/*.org"
-        "~/.emacs.d/prive/documents/*.org"
-        "/home/jbbourgoin/Documents/Travaux/Ar Vro Bagan/todo.org"))
-
 ;; afficher les images "en ligne" grâce à iimage
 (require 'iimage)
 (add-to-list 'iimage-mode-image-regex-alist
@@ -26,6 +20,45 @@
 
 ;; intégration au diary
 (setq org-agenda-include-diary t)
+
+
+;;;;;;;;;;;; PUBLICATION
+(require 'org-publish)
+(setq org-publish-project-alist
+      '(("journal-html"
+         :base-directory "~/org/journal/"
+         :base-extension "org"
+         :publishing-directory "~/org/public/journal/"
+         :publishing-function org-publish-org-to-html
+         :recursive t
+         :style "<link rel=\"stylesheet\"
+                       href=\"lib/style.css\" type=\"text/css\"/>"
+         :auto-preamble t
+         :html-preamble "
+   <div id=\"menu\">
+    <p>
+    <a href=\"index.html\" >Home</a> |
+    <a href=\"page2.html\" >Page 2</a> |
+    <a href=\"page3.html\" >Page 3</a> |
+    <a href=\"page4.html\" >Page 4</a>
+    </p>
+   </div>
+"
+	 :html-postamble " Jean-Baptiste Bourgoin ® "
+	 :auto-sitemap t                ; Generate sitemap.org automagically...
+	 :sitemap-filename "sitemap.org"  ; ... call it sitemap.org (it's the default)...
+	 :sitemap-title "Sitemap"         ; ... with title 'Sitemap'.
+	 :style-include-default nil
+	 )
+
+        ("journal-static"
+         :base-directory "~/org/journal/"
+         :base-extension "css\\|js\\|png\\|jpg\\|gif\\|pdf\\|mp3\\|ogg\\|swf\\|webm"
+         :publishing-directory "~/org/public/journal/"
+         :publishing-function org-publish-attachment)
+
+        ("journal" :components ("journal-html" "journal-static" ))
+        ))
 
 
 ;;;; LATEX
