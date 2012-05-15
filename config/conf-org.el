@@ -24,30 +24,68 @@
 
 ;;;;;;;;;;;; PUBLICATION
 (require 'org-publish)
+(setq org-export-html-coding-system 'utf-8-unix)
 (setq org-publish-project-alist
-      '(("journal-html"
-         :base-directory "~/org/journal/"
+      '(("jbb-index"
+         :base-directory "~/org/jbb/"
          :base-extension "org"
-         :publishing-directory "~/org/public/journal/"
+         :publishing-directory "~/org/public/jbb/"
+         :publishing-function org-publish-org-to-html
+         :html-preamble `(org-get-file-contents "~/org/jbb/preamble.html")
+	 :html-postamble `(org-get-file-contents "~/org/jbb/postamble.html")
+	 :style-include-default nil
+	 )
+	
+	("jbb-journal"
+	 :base-directory "~/org/jbb/journal/"
+         :base-extension "org"
+         :publishing-directory "~/org/public/jbb/journal/"
          :publishing-function org-publish-org-to-html
          :recursive t
-         :auto-preamble t
-         :html-preamble " "
-	 :html-postamble " Jean-Baptiste Bourgoin ® "
+         :html-preamble `(org-get-file-contents "~/org/jbb/preamble.html")
+	 :html-postamble `(org-get-file-contents "~/org/jbb/postamble.html")
 	 :auto-sitemap t                ; Generate sitemap.org automagically...
 	 :sitemap-filename "sitemap.org"  ; ... call it sitemap.org (it's the default)...
-	 :sitemap-title "Plan du site"         ; ... with title 'Sitemap'.
+	 :sitemap-title "Sommaire du journal"         ; ... with title 'Sitemap'.
 	 :style-include-default nil
 	 )
 
-        ("journal-static"
-         :base-directory "~/org/journal/"
+	("jbb-musique"
+	 :base-directory "~/org/jbb/musique/"
+         :base-extension "org"
+         :publishing-directory "~/org/public/jbb/musique/"
+         :publishing-function org-publish-org-to-html
+         :recursive t
+         :html-preamble `(org-get-file-contents "~/org/jbb/preamble.html")
+	 :html-postamble `(org-get-file-contents "~/org/jbb/postamble.html")
+	 :auto-sitemap t                ; Generate sitemap.org automagically...
+	 :sitemap-filename "sitemap.org"  ; ... call it sitemap.org (it's the default)...
+	 :sitemap-title "Sommaire musique"         ; ... with title 'Sitemap'.
+	 :style-include-default nil
+	 )
+
+	("jbb-informatique"
+	 :base-directory "~/org/jbb/informatique/"
+         :base-extension "org"
+         :publishing-directory "~/org/public/jbb/informatique/"
+         :publishing-function org-publish-org-to-html
+         :recursive t
+         :html-preamble `(org-get-file-contents "~/org/jbb/preamble.html")
+	 :html-postamble `(org-get-file-contents "~/org/jbb/postamble.html")
+	 :auto-sitemap t                ; Generate sitemap.org automagically...
+	 :sitemap-filename "sitemap.org"  ; ... call it sitemap.org (it's the default)...
+	 :sitemap-title "Sommaire informatique"         ; ... with title 'Sitemap'.
+	 :style-include-default nil
+	 )
+
+        ("jbb-static"
+         :base-directory "~/org/jbb/"
          :base-extension "css\\|js\\|png\\|jpg\\|gif\\|pdf\\|mp3\\|ogg\\|swf\\|webm"
-         :publishing-directory "~/org/public/journal/"
+         :publishing-directory "~/org/public/jbb/"
          :recursive t
          :publishing-function org-publish-attachment)
 
-        ("journal" :components ("journal-html" "journal-static" ))
+        ("jbb" :components ("jbb-index" "jbb-journal" "jbb-musique" "jbb-informatique" "jbb-static" ))
         ))
 
 
