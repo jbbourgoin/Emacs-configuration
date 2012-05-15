@@ -31,8 +31,8 @@
          :base-extension "org"
          :publishing-directory "~/org/public/jbb/"
          :publishing-function org-publish-org-to-html
-         :html-preamble `(org-get-file-contents "~/org/jbb/preamble.html")
-	 :html-postamble `(org-get-file-contents "~/org/jbb/postamble.html")
+         :html-preamble ""
+	 :html-postamble "<a rel=\"license\" href=\"http://creativecommons.org/licenses/by-nc-nd/3.0/\"><img alt=\"Licence Creative Commons\" style=\"border-width:0\" src=\"http://i.creativecommons.org/l/by-nc-nd/3.0/88x31.png\" /></a><br />Ce(tte) oeuvre de <span xmlns:cc=\"http://creativecommons.org/ns#\" property=\"cc:attributionName\">Jean-Baptiste Bourgoin</span> est mise à disposition selon les termes de la <a rel=\"license\" href=\"http://creativecommons.org/licenses/by-nc-nd/3.0/\">licence Creative Commons Attribution - Pas d’Utilisation Commerciale - Pas de Modification 3.0 non transposé</a>."
 	 :style-include-default nil
 	 )
 	
@@ -42,8 +42,8 @@
          :publishing-directory "~/org/public/jbb/journal/"
          :publishing-function org-publish-org-to-html
          :recursive t
-         :html-preamble `(org-get-file-contents "~/org/jbb/preamble.html")
-	 :html-postamble `(org-get-file-contents "~/org/jbb/postamble.html")
+         :html-preamble ""
+	 :html-postamble "<a rel=\"license\" href=\"http://creativecommons.org/licenses/by-nc-nd/3.0/\"><img alt=\"Licence Creative Commons\" style=\"border-width:0\" src=\"http://i.creativecommons.org/l/by-nc-nd/3.0/88x31.png\" /></a><br />Ce(tte) oeuvre de <span xmlns:cc=\"http://creativecommons.org/ns#\" property=\"cc:attributionName\">Jean-Baptiste Bourgoin</span> est mise à disposition selon les termes de la <a rel=\"license\" href=\"http://creativecommons.org/licenses/by-nc-nd/3.0/\">licence Creative Commons Attribution - Pas d’Utilisation Commerciale - Pas de Modification 3.0 non transposé</a>."
 	 :auto-sitemap t                ; Generate sitemap.org automagically...
 	 :sitemap-filename "sitemap.org"  ; ... call it sitemap.org (it's the default)...
 	 :sitemap-title "Sommaire du journal"         ; ... with title 'Sitemap'.
@@ -56,8 +56,8 @@
          :publishing-directory "~/org/public/jbb/musique/"
          :publishing-function org-publish-org-to-html
          :recursive t
-         :html-preamble `(org-get-file-contents "~/org/jbb/preamble.html")
-	 :html-postamble `(org-get-file-contents "~/org/jbb/postamble.html")
+         :html-preamble ""
+	 :html-postamble "<a rel=\"license\" href=\"http://creativecommons.org/licenses/by-nc-nd/3.0/\"><img alt=\"Licence Creative Commons\" style=\"border-width:0\" src=\"http://i.creativecommons.org/l/by-nc-nd/3.0/88x31.png\" /></a><br />Ce(tte) oeuvre de <span xmlns:cc=\"http://creativecommons.org/ns#\" property=\"cc:attributionName\">Jean-Baptiste Bourgoin</span> est mise à disposition selon les termes de la <a rel=\"license\" href=\"http://creativecommons.org/licenses/by-nc-nd/3.0/\">licence Creative Commons Attribution - Pas d’Utilisation Commerciale - Pas de Modification 3.0 non transposé</a>."
 	 :auto-sitemap t                ; Generate sitemap.org automagically...
 	 :sitemap-filename "sitemap.org"  ; ... call it sitemap.org (it's the default)...
 	 :sitemap-title "Sommaire musique"         ; ... with title 'Sitemap'.
@@ -70,8 +70,8 @@
          :publishing-directory "~/org/public/jbb/informatique/"
          :publishing-function org-publish-org-to-html
          :recursive t
-         :html-preamble `(org-get-file-contents "~/org/jbb/preamble.html")
-	 :html-postamble `(org-get-file-contents "~/org/jbb/postamble.html")
+         :html-preamble ""
+	 :html-postamble "<a rel=\"license\" href=\"http://creativecommons.org/licenses/by-nc-nd/3.0/\"><img alt=\"Licence Creative Commons\" style=\"border-width:0\" src=\"http://i.creativecommons.org/l/by-nc-nd/3.0/88x31.png\" /></a><br />Ce(tte) oeuvre de <span xmlns:cc=\"http://creativecommons.org/ns#\" property=\"cc:attributionName\">Jean-Baptiste Bourgoin</span> est mise à disposition selon les termes de la <a rel=\"license\" href=\"http://creativecommons.org/licenses/by-nc-nd/3.0/\">licence Creative Commons Attribution - Pas d’Utilisation Commerciale - Pas de Modification 3.0 non transposé</a>."
 	 :auto-sitemap t                ; Generate sitemap.org automagically...
 	 :sitemap-filename "sitemap.org"  ; ... call it sitemap.org (it's the default)...
 	 :sitemap-title "Sommaire informatique"         ; ... with title 'Sitemap'.
@@ -80,7 +80,7 @@
 
         ("jbb-static"
          :base-directory "~/org/jbb/"
-         :base-extension "css\\|js\\|png\\|jpg\\|gif\\|pdf\\|mp3\\|ogg\\|swf\\|webm"
+         :base-extension "css\\|js\\|png\\|jpg\\|gif\\|pdf\\|mp3\\|ogg\\|swf\\|webm\\|otf\\|woff\\|svg\\|ttf"
          :publishing-directory "~/org/public/jbb/"
          :recursive t
          :publishing-function org-publish-attachment)
