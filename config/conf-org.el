@@ -233,6 +233,7 @@
 
 ; Make babel results blocks lowercase
 (setq org-babel-results-keyword "results")
+(require 'ob-lilypond)
 
 (defun bh/display-inline-images ()
   (condition-case nil
@@ -240,28 +241,30 @@
     (error nil)))
 
 (org-babel-do-load-languages
- (quote org-babel-load-languages)
- (quote ((emacs-lisp . nil)
-         (dot . t)
-         (ditaa . t)
-         (R . t)
-         (python . nil)
-         (ruby . nil)
-         (gnuplot . t)
-         (clojure . nil)
-         (sh . nil)
-         (ledger . t)
-         (org . t)
-         (plantuml . t)
-         (latex . t))))
+  'org-babel-load-languages
+  '(
+    (emacs-lisp . t)
+    (sh t)
+    (dot . t)
+    (ditaa . t)
+    (R . t)
+    (python . nil)
+    (ruby . nil)
+    (gnuplot . t)
+    (clojure . nil)
+    (ledger . t)
+    (org . t)
+    (plantuml . t)
+    (latex . t)
+    (lilypond . t)))
 
 ; Do not prompt to confirm evaluation
 ; This may be dangerous - make sure you understand the consequences
 ; of setting this -- see the docstring for details
-(setq org-confirm-babel-evaluate nil)
+;;(setq org-confirm-babel-evaluate nil)
 
 ; Use fundamental mode when editing plantuml blocks with C-c '
-(add-to-list 'org-src-lang-modes (quote ("plantuml" . fundamental)))
+;;(add-to-list 'org-src-lang-modes (quote ("plantuml" . fundamental)))
 
 (provide 'conf-org)
 ;;; conf-org.el ends here
