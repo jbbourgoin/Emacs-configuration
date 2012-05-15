@@ -13,6 +13,11 @@
 ;; html mode pour perl template
 (add-to-list 'auto-mode-alist '("\\.tt\\'" . html-mode))
 
+;;; css
+(require 'less-css-mode)
+(setq less-css-compile-at-save t)
+(setq less-css-lessc-command "lessc")
+
 ;;; yaml
 (require 'yaml-mode)
 (add-to-list 'auto-mode-alist '("\\.yml$" . yaml-mode))

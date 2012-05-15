@@ -31,23 +31,12 @@
          :publishing-directory "~/org/public/journal/"
          :publishing-function org-publish-org-to-html
          :recursive t
-         :style "<link rel=\"stylesheet\"
-                       href=\"lib/style.css\" type=\"text/css\"/>"
          :auto-preamble t
-         :html-preamble "
-   <div id=\"menu\">
-    <p>
-    <a href=\"index.html\" >Home</a> |
-    <a href=\"page2.html\" >Page 2</a> |
-    <a href=\"page3.html\" >Page 3</a> |
-    <a href=\"page4.html\" >Page 4</a>
-    </p>
-   </div>
-"
+         :html-preamble " "
 	 :html-postamble " Jean-Baptiste Bourgoin ® "
 	 :auto-sitemap t                ; Generate sitemap.org automagically...
 	 :sitemap-filename "sitemap.org"  ; ... call it sitemap.org (it's the default)...
-	 :sitemap-title "Sitemap"         ; ... with title 'Sitemap'.
+	 :sitemap-title "Plan du site"         ; ... with title 'Sitemap'.
 	 :style-include-default nil
 	 )
 
@@ -55,6 +44,7 @@
          :base-directory "~/org/journal/"
          :base-extension "css\\|js\\|png\\|jpg\\|gif\\|pdf\\|mp3\\|ogg\\|swf\\|webm"
          :publishing-directory "~/org/public/journal/"
+         :recursive t
          :publishing-function org-publish-attachment)
 
         ("journal" :components ("journal-html" "journal-static" ))
