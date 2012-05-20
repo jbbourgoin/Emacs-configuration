@@ -4,10 +4,10 @@
   (require 'cl))
 
 ;;; lilypond
-;; (autoload 'LilyPond-mode "lilypond-mode")
-;; (setq auto-mode-alist
-;;       (cons '("\\.ly$" . LilyPond-mode) auto-mode-alist))
-;; (add-hook 'LilyPond-mode-hook (lambda () (turn-on-font-lock)))
+(autoload 'LilyPond-mode "lilypond-mode")
+(setq auto-mode-alist
+      (cons '("\\.ly$" . LilyPond-mode) auto-mode-alist))
+(add-hook 'LilyPond-mode-hook (lambda () (turn-on-font-lock)))
 
 ;;; html
 ;; html mode pour perl template

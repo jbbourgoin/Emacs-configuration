@@ -22,8 +22,8 @@
         ))
 
 ;;; rendu html
-;;(setq mm-text-html-renderer 'w3) ;; W3
-(setq mm-text-html-renderer 'w3m) ;; W3
+(setq mm-text-html-renderer 'w3) ;; W3
+;;(setq mm-text-html-renderer 'w3m) ;; W3
 
 ;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; méthodes d'accès ;;;
