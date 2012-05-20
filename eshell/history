@@ -121,3 +121,6 @@ ls
 mv ../lib/*.org .
 ls
 perl mybeep.pl 
+cd ../../prive/
+ls
+touch imap-authinfo msmtprc

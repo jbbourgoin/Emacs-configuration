@@ -29,32 +29,30 @@
 ;;; méthodes d'accès ;;;
 ;; NNTP : login et mdp dans nntp-authinfo
 ;; authinfo : machine news.eternal-september.org login LOGIN password MDP force yes
-(setq nntp-authinfo-file "~/.emacs.d/prive/config/nntp-authinfo")
+(setq nntp-authinfo-file "~/.emacs.d/prive/nntp-authinfo")
 (setq gnus-select-method '(nntp "news.eternal-september.org"))
 ;; IMAP
 (when (eq system-type 'cygwin)
   (setq imap-ssl-program-binary "/bin/openssl.exe")
   (setq imap-ssl-program-arguments "s_client -quiet -ssl3 -connect %s:%p")
   (setq imap-ssl-program (concat imap-ssl-program-binary
-                               " "
-                               imap-ssl-program-arguments)))
-
-;; (setq gnus-secondary-select-methods
-;;              '(
-
-;;                (nnimap "monsieur.camille"
-;;                       (nnimap-address "imap.gmail.com")
-;;                       (nnimap-server-port 993)
-;;                       (nnimap-authinfo-file "~/.emacs.d/prive/config/imap-authinfo")
-;;                       (nnimap-stream ssl)) ;; openssl : (nnimap-stream ssl) gnutls : (nnim... tls)
-               
-;;                (nnimap "jeanbaptiste.bourgoin"
-;;                       (nnimap-address "imap.gmail.com")
-;;                       (nnimap-server-port 993)
-;;                       (nnimap-authinfo-file "~/.emacs.d/prive/config/imap-authinfo")
-;;                       (nnimap-stream ssl))
-               
-;;                ))
+				 " "
+				 imap-ssl-program-arguments)))
+(setq gnus-secondary-select-methods
+      '(
+	(nnimap "monsieur.camille"
+		(nnimap-address "imap.gmail.com")
+		(nnimap-server-port 993)
+		(nnimap-authinfo-file "~/.emacs.d/prive/imap-authinfo")
+		(nnimap-stream ssl)) ;; openssl : (nnimap-stream ssl) gnutls : (nnim... tls)
+	
+	(nnimap "jeanbaptiste.bourgoin"
+		(nnimap-address "imap.gmail.com")
+		(nnimap-server-port 993)
+		(nnimap-authinfo-file "~/.emacs.d/prive/imap-authinfo")
+		(nnimap-stream ssl))
+	
+	))
 ;;;;;;;;;;;;;;;;;;;;;;;;
 
 
@@ -82,9 +80,9 @@
 (setq message-send-mail-function 'message-send-mail-with-sendmail)
 ;; we substitute sendmail with msmtp
 (when (eq system-type 'cygwin)
-  (setq sendmail-program "~/.emacs.d/bin/msmtp.exe -C ~/.emacs.d/prive/config/msmtprc"))
+  (setq sendmail-program "~/.emacs.d/bin/msmtp.exe -C ~/.emacs.d/prive/msmtprc"))
 (when (eq system-type 'gnu/linux)
-    (setq sendmail-program "msmtp"))
+    (setq sendmail-program "msmtp -C ~/.emacs.d/prive/msmtprc"))
 (defun cg-feed-msmtp ()
   (if (message-mail-p)
       (save-excursion
