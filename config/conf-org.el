@@ -154,6 +154,9 @@ Cette oeuvre de <span xmlns:cc=\"http://creativecommons.org/ns#\" property=\"cc:
 ;; code source en couleur
 (setq org-export-latex-listings t)
 
+;; use xelatex
+;(setq org-latex-to-pdf-process '("xelatex %f"))
+
 ;; class article
 (require 'org-latex)
 (unless (boundp 'org-export-latex-classes)

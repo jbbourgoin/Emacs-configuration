@@ -25,6 +25,7 @@
 (require 'conf-javascript)
 (require 'conf-lisp)
 (require 'conf-perl)
+(require 'conf-php)
 ;;(require 'conf-go)
 
 ;; pde active ido, le désactiver par défaut :
