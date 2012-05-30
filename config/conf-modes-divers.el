@@ -6,6 +6,11 @@
 ;;; flymake
 (require 'flymake)
 
+;; helm
+(require 'helm-config)
+(global-set-key (kbd "C-c h") 'helm-mini)
+(helm-mode 1)
+
 ;;; lilypond
 ;; (autoload 'LilyPond-mode "lilypond-mode")
 ;; (setq auto-mode-alist
@@ -17,9 +22,11 @@
 (add-to-list 'auto-mode-alist '("\\.tt\\'" . html-mode))
 
 ;;; css
+;;(require 'css-complete) ; complétion des règles css
 (require 'less-css-mode)
 (setq less-css-compile-at-save t)
 (setq less-css-lessc-command "lessc")
+
 
 ;;; yaml
 (require 'yaml-mode)

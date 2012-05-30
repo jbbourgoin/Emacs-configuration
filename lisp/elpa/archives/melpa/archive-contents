@@ -3,10 +3,10 @@
       [(20110826)
        nil "Provides zsh like completion for minibuffer [source: github]" single])
  (zenburn-theme .
-		[(20120505)
+		[(20120529)
 		 nil "A low contrast color theme for Emacs. [source: github]" single])
  (yasnippet .
-	    [(20120523)
+	    [(20120529)
 	     nil "Yet another snippet extension for Emacs. [source: github]" tar])
  (yari .
        [(20110417)
@@ -122,7 +122,7 @@
 		 (0 8 1)))
 	       "Saner defaults and goodies. [source: github]" tar])
  (solarized-theme .
-		  [(20120518)
+		  [(20120529)
 		   nil "The Solarized color theme, ported to Emacs. [source: github]" tar])
  (smooth-scrolling .
 		   [(20111206)
@@ -217,7 +217,7 @@
 	   [(20120506)
 	    nil "A Python regexp/replace command for Emacs with interactive visual feedback [source: github]" tar])
  (projectile .
-	     [(20120502)
+	     [(20120529)
 	      nil "Manage and navigate projects in Emacs easily [source: github]" single])
  (pretty-symbols-mode .
 		      [(20120507)
@@ -342,8 +342,11 @@
 		[(20120214)
 		 nil "Interface to the ArchLinux package manager [source: github]" single])
  (php-mode .
-	   [(20120527)
+	   [(20120529)
 	    nil "major mode for editing PHP code [source: github]" single])
+ (php+-mode .
+	    [(20120525)
+	     nil "A better PHP mode with Zend Framework 1 support. [source: github]" tar])
  (pcache .
 	 [(20120408)
 	  ((eieio
@@ -389,7 +392,7 @@
 		[(20120503)
 		 nil "No description available. [source: github]" single])
  (mmm-mode .
-	   [(20120511)
+	   [(20120529)
 	    nil "Allow Multiple Major Modes in a buffer [source: github]" tar])
  (minimap .
 	  [(20110427)
@@ -397,6 +400,9 @@
  (melpa .
 	[(20120202)
 	 nil "special handling for the MELPA repository [source: github]" single])
+ (mediawiki .
+	    [(20120527)
+	     nil "mediawiki frontend [source: bzr]" single])
  (markdown-mode+ .
 		 [(20120219)
 		  ((markdown-mode
@@ -468,6 +474,9 @@
  (ir_black-theme .
 		 [(20120503)
 		  nil "No description available. [source: github]" single])
+ (inlineR .
+	  [(20120520)
+	   nil "insert Tag for inline image of R graphics [source: github]" single])
  (inkpot-theme .
 	       [(20120505)
 		nil "port of vim's inkpot theme [source: github]" single])
@@ -514,6 +523,13 @@
  (helm-git .
 	   [(20120526)
 	    nil "Helm extension for Git. [source: github]" single])
+ (helm-R .
+	 [(20120523)
+	  ((helm
+	    (20120517))
+	   (ess
+	    (20120509)))
+	  "helm-sources and some utilities for GNU R. [source: github]" single])
  (helm .
        [(20120527)
 	nil "Helm is an Emacs incremental and narrowing framework [source: github]" tar])
@@ -533,7 +549,7 @@
 		 [(20091009)
 		  nil "Google's C/C++ style for c-mode [source: svn]" single])
  (go-mode .
-	  [(20120507)
+	  [(20120529)
 	   nil "No description available. [source: hg]" tar])
  (gnuplot .
 	  [(20120420)
@@ -765,11 +781,5 @@
 	    nil "An auto-complete source using slime completions [source: github]" single])
  (ac-dabbrev .
 	     [(20091116)
-	      nil "auto-complete.el source for dabbrev [source: wiki]" single])
- (mediawiki .
-	    [(20120118)
-	     nil "mediawiki frontend [source: bzr]" single])
- (zf-mode .
-	  [(20120523)
-	   nil "A better PHP mode with Zend Framework 1 support. [source: github]" tar]))
+	      nil "auto-complete.el source for dabbrev [source: wiki]" single]))
 
