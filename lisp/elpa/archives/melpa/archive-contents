@@ -2,6 +2,9 @@
  (zlc .
       [(20110826)
        nil "Provides zsh like completion for minibuffer [source: github]" single])
+ (zencoding-mode .
+		 [(20111231)
+		  nil "Unfold CSS-selector-like expressions to markup [source: github]" single])
  (zenburn-theme .
 		[(20120529)
 		 nil "A low contrast color theme for Emacs. [source: github]" single])
@@ -241,7 +244,7 @@
 		    (1 0 0)))
 		  "Emacs Prelude: Some defaults for Scheme. [source: github]" single])
  (prelude-ruby .
-	       [(20120523)
+	       [(20120530)
 		((prelude-programming
 		  (1 0 0))
 		 (inf-ruby
@@ -531,10 +534,10 @@
 	    (20120509)))
 	  "helm-sources and some utilities for GNU R. [source: github]" single])
  (helm .
-       [(20120527)
+       [(20120531)
 	nil "Helm is an Emacs incremental and narrowing framework [source: github]" tar])
  (haskell-mode .
-	       [(20120529)
+	       [(20120530)
 		nil "A Haskell editing mode [source: github]" tar])
  (haml-mode .
 	    [(20101019)
@@ -549,7 +552,7 @@
 		 [(20091009)
 		  nil "Google's C/C++ style for c-mode [source: svn]" single])
  (go-mode .
-	  [(20120529)
+	  [(20120530)
 	   nil "No description available. [source: hg]" tar])
  (gnuplot .
 	  [(20120420)
@@ -626,7 +629,7 @@
 	      [(20111001)
 	       nil "No description available. [source: github]" single])
  (evil .
-       [(20120525)
+       [(20120531)
 	((undo-tree
 	  (0 5 1)))
 	"Extensible Vi layer for Emacs. [source: git]" tar])
@@ -701,7 +704,7 @@
 			   (6 5 5)))
 			 "Solarized themes for Emacs [source: github]" tar])
  (color-theme-sanityinc-tomorrow .
-				 [(20120504)
+				 [(20120531)
 				  nil "A version of Chris Kempson's various Tomorrow themes [source: github]" tar])
  (color-theme-sanityinc-solarized .
 				  [(20120504)
@@ -728,7 +731,7 @@
 		       (1 7)))
 		     "Minor mode for Clojure tests [source: github]" single])
  (clojure-mode .
-	       [(20120427)
+	       [(20120531)
 		nil "Major mode for Clojure code [source: github]" single])
  (citrus-mode .
 	      [(20120403)

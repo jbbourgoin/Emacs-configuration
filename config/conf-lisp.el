@@ -50,11 +50,11 @@ file corresponding to the current buffer file, then recompile the file."
 ;; M-( - Wraps the following S-expression in a list.
 
 
-(autoload 'paredit-mode "paredit"
-  "Minor mode for pseudo-structurally editing Lisp code." t)
-(add-hook 'emacs-lisp-mode-hook       (lambda () (paredit-mode +1)))
-(add-hook 'lisp-mode-hook             (lambda () (paredit-mode +1)))
-(add-hook 'lisp-interaction-mode-hook (lambda () (paredit-mode +1)))
+;; (autoload 'paredit-mode "paredit"
+;;   "Minor mode for pseudo-structurally editing Lisp code." t)
+;; (add-hook 'emacs-lisp-mode-hook       (lambda () (paredit-mode +1)))
+;; (add-hook 'lisp-mode-hook             (lambda () (paredit-mode +1)))
+;; (add-hook 'lisp-interaction-mode-hook (lambda () (paredit-mode +1)))
 
 (provide 'conf-lisp)
 ;;; conf-lisp.el ends here
