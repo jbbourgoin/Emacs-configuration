@@ -29,4 +29,4 @@
 ;;(require 'conf-go)
 
 ;; pde active ido, le désactiver par défaut :
-(ido-mode 1)
+(ido-mode 0)
