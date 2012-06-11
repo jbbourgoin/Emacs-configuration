@@ -11,10 +11,10 @@
 ;;; i : sélectionner pour installer
 ;;; r : update
 ;;; x : install
-(when
-    (load
-     (expand-file-name "~/.emacs.d/public/lisp/package.el"))
-  (package-initialize))
+;; (when
+;;     (load
+;;      (expand-file-name "~/.emacs.d/public/lisp/package.el"))
+;;   (package-initialize))
 
 ;; Personnal directory
 (setq package-user-dir "~/.emacs.d/public/lisp/elpa/")
