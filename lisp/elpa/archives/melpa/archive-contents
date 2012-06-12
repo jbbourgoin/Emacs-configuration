@@ -35,9 +35,6 @@
  (vimgolf .
 	  [(20120228)
 	   nil "VimGolf interface for the One True Editor [source: github]" single])
- (vc-darcs .
-	   [(20090617)
-	    nil "a VC backend for darcs [source: darcs]" single])
  (unfill .
 	 [(20120529)
 	  nil "The inverse of fill-paragraph and fill-region [source: github]" single])
@@ -131,7 +128,7 @@
 		 (0 8 1)))
 	       "Saner defaults and goodies. [source: github]" tar])
  (solarized-theme .
-		  [(20120529)
+		  [(20120610)
 		   nil "The Solarized color theme, ported to Emacs. [source: github]" tar])
  (smooth-scrolling .
 		   [(20111206)
@@ -146,7 +143,7 @@
 		  [(20120611)
 		   nil "A color coded smart mode-line. [source: github]" single])
  (slime-ritz .
-	     [(20120604)
+	     [(20120612)
 	      nil "slime extensions for ritz [source: github]" single])
  (slime .
 	[(20120525)
@@ -422,7 +419,7 @@
 		[(20120526)
 		 nil "Set up `mode-line-position'. [source: wiki]" single])
  (mmm-mode .
-	   [(20120605)
+	   [(20120611)
 	    nil "Allow Multiple Major Modes in a buffer [source: github]" tar])
  (minimap .
 	  [(20110427)
@@ -455,7 +452,7 @@
 	[(20120601)
 	 nil "Control Git from Emacs. [source: github]" tar])
  (lua-mode .
-	   [(20120527)
+	   [(20120612)
 	    nil "a major-mode for editing Lua scripts [source: github]" single])
  (logito .
 	 [(20120225)
@@ -463,7 +460,7 @@
 	    (1 3)))
 	  "logging library for Emacs [source: github]" single])
  (logalimacs .
-	     [(20120611)
+	     [(20120612)
 	      ((popwin
 		(20120529))
 	       (popup
@@ -472,6 +469,9 @@
  (load-theme-buffer-local .
 			  [(20120606)
 			   nil "Install emacs24 color themes by buffer. [source: github]" single])
+ (linum-relative .
+		 [(20120612)
+		  nil "display relative line number in the left margin [source: wiki]" single])
  (less-css-mode .
 		[(20111128)
 		 nil "Major mode for editing LESS CSS files (lesscss.org) [source: github]" single])
@@ -489,7 +489,7 @@
 	   [(20120508)
 	    nil "JavaScript scanner [source: github]" single])
  (js2-mode .
-	   [(20120606)
+	   [(20120611)
 	    nil "an improved JavaScript editing mode [source: github]" tar])
  (js-comint .
 	    [(20080530)
@@ -592,7 +592,7 @@
 		 [(20091009)
 		  nil "Google's C/C++ style for c-mode [source: svn]" single])
  (go-mode .
-	  [(20120604)
+	  [(20120611)
 	   nil "No description available. [source: hg]" tar])
  (gnuplot .
 	  [(20120420)
@@ -703,7 +703,7 @@
 		  [(20111111)
 		   nil "Make M-. and M-, work in elisp like they do in slime [source: github]" single])
  (egg .
-      [(20120608)
+      [(20120612)
        nil "No description available. [source: github]" tar])
  (e2wm .
        [(20120601)
@@ -789,7 +789,7 @@
 		   [(20100315)
 		    nil "interactively insert items from kill-ring [source: github]" single])
  (bookmark+ .
-	    [(20120516)
+	    [(20120612)
 	     nil "Bookmark+: extensions to standard library `bookmark.el'. [source: wiki]" tar])
  (bm .
      [(20120611)
@@ -827,5 +827,8 @@
 	    nil "An auto-complete source using slime completions [source: github]" single])
  (ac-dabbrev .
 	     [(20091116)
-	      nil "auto-complete.el source for dabbrev [source: wiki]" single]))
+	      nil "auto-complete.el source for dabbrev [source: wiki]" single])
+ (vc-darcs .
+	   [(20090617)
+	    nil "a VC backend for darcs [source: darcs]" single]))
 
