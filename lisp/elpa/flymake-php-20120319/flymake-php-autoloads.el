@@ -4,7 +4,7 @@
 
 
 ;;;### (autoloads (flymake-php-load) "flymake-php" "flymake-php.el"
-;;;;;;  (20420 47029))
+;;;;;;  (20441 3421))
 ;;; Generated autoloads from flymake-php.el
 
 (autoload 'flymake-php-load "flymake-php" "\
@@ -18,7 +18,7 @@ does not alter flymake's global configuration, so function
 
 ;;;***
 
-;;;### (autoloads nil nil ("flymake-php-pkg.el") (20420 47029 935043))
+;;;### (autoloads nil nil ("flymake-php-pkg.el") (20441 3421 688910))
 
 ;;;***
 

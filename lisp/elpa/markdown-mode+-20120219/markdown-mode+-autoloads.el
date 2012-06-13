@@ -5,7 +5,7 @@
 
 ;;;### (autoloads (markdown-copy-paste-html markdown-copy-rtf markdown-export-pdf
 ;;;;;;  markdown-export-latex) "markdown-mode+" "markdown-mode+.el"
-;;;;;;  (20354 4060))
+;;;;;;  (20441 3091))
 ;;; Generated autoloads from markdown-mode+.el
 
 (autoload 'markdown-export-latex "markdown-mode+" "\
@@ -31,7 +31,7 @@ process file with multimarkdown, copy it to the clipboard, and
 
 ;;;***
 
-;;;### (autoloads nil nil ("markdown-mode+-pkg.el") (20354 4060 394181))
+;;;### (autoloads nil nil ("markdown-mode+-pkg.el") (20441 3091 650637))
 
 ;;;***
 

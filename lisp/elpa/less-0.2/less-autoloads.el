@@ -4,7 +4,7 @@
 
 
 ;;;### (autoloads (less-minor-mode-off less-minor-mode-on auto-less-minor-mode
-;;;;;;  less-minor-mode) "less" "less.el" (20149 48186))
+;;;;;;  less-minor-mode) "less" "less.el" (20441 3538))
 ;;; Generated autoloads from less.el
 
 (autoload 'less-minor-mode "less" "\
@@ -33,7 +33,7 @@ Turn off `less-minor-mode'.
 
 ;;;***
 
-;;;### (autoloads nil nil ("less-pkg.el") (20149 48186 859116))
+;;;### (autoloads nil nil ("less-pkg.el") (20441 3538 908634))
 
 ;;;***
 

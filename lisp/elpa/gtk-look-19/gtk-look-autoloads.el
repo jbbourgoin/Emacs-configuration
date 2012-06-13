@@ -4,7 +4,7 @@
 
 
 ;;;### (autoloads (gtk-lookup-symbol gtk-lookup) "gtk-look" "gtk-look.el"
-;;;;;;  (20149 48187))
+;;;;;;  (20441 3563))
 ;;; Generated autoloads from gtk-look.el
 
 (let ((loads (get 'gtk-lookup 'custom-loads))) (if (member '"gtk-look" loads) nil (put 'gtk-lookup 'custom-loads (cons '"gtk-look" loads))))
@@ -64,7 +64,7 @@ URL `http://user42.tuxfamily.org/gtk-look/index.html'
 
 ;;;***
 
-;;;### (autoloads nil nil ("gtk-look-pkg.el") (20149 48187 592836))
+;;;### (autoloads nil nil ("gtk-look-pkg.el") (20441 3563 885288))
 
 ;;;***
 

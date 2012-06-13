@@ -4,7 +4,7 @@
 
 
 ;;;### (autoloads nil nil ("flymake-perlcritic-pkg.el" "flymake-perlcritic.el")
-;;;;;;  (20420 47033 714090))
+;;;;;;  (20441 3422 434584))
 
 ;;;***
 

@@ -3,8 +3,8 @@
 ;;; Code:
 
 
-;;;### (autoloads nil nil ("helm-git-pkg.el" "helm-git.el") (20437
-;;;;;;  41130 455514))
+;;;### (autoloads nil nil ("helm-git-pkg.el" "helm-git.el") (20441
+;;;;;;  3553 478595))
 
 ;;;***
 

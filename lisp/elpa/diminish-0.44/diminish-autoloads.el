@@ -4,7 +4,7 @@
 
 
 ;;;### (autoloads (diminished-modes diminish-undo diminish) "diminish"
-;;;;;;  "diminish.el" (20149 49829))
+;;;;;;  "diminish.el" (20441 3359))
 ;;; Generated autoloads from diminish.el
 
 (autoload 'diminish "diminish" "\
@@ -49,7 +49,7 @@ what diminished modes would be on the mode-line if they were still minor.
 
 ;;;***
 
-;;;### (autoloads nil nil ("diminish-pkg.el") (20149 49829 374818))
+;;;### (autoloads nil nil ("diminish-pkg.el") (20441 3360 36870))
 
 ;;;***
 

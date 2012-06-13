@@ -7,46 +7,46 @@
 ;;;;;;  font-default-encoding-for-device font-default-registry-for-device
 ;;;;;;  font-default-family-for-device font-default-object-for-device
 ;;;;;;  font-default-font-for-device font-create-object) "font" "font.el"
-;;;;;;  (20408 58413))
+;;;;;;  (20441 3039))
 ;;; Generated autoloads from font.el
 
 (autoload 'font-create-object "font" "\
-Not documented
+
 
 \(fn FONTNAME &optional DEVICE)" nil nil)
 
 (autoload 'font-default-font-for-device "font" "\
-Not documented
+
 
 \(fn &optional DEVICE)" nil nil)
 
 (autoload 'font-default-object-for-device "font" "\
-Not documented
+
 
 \(fn &optional DEVICE)" nil nil)
 
 (autoload 'font-default-family-for-device "font" "\
-Not documented
+
 
 \(fn &optional DEVICE)" nil nil)
 
 (autoload 'font-default-registry-for-device "font" "\
-Not documented
+
 
 \(fn &optional DEVICE)" nil nil)
 
 (autoload 'font-default-encoding-for-device "font" "\
-Not documented
+
 
 \(fn &optional DEVICE)" nil nil)
 
 (autoload 'font-default-size-for-device "font" "\
-Not documented
+
 
 \(fn &optional DEVICE)" nil nil)
 
 (autoload 'x-font-build-cache "font" "\
-Not documented
+
 
 \(fn &optional DEVICE)" nil nil)
 
@@ -57,7 +57,7 @@ Not documented
 ;;;;;;  w3-follow-url-at-point w3-follow-url-at-point-other-frame
 ;;;;;;  w3-maybe-follow-link w3-maybe-follow-link-mouse w3-fetch
 ;;;;;;  w3-fetch-other-frame w3-find-file w3-open-local) "w3" "w3.el"
-;;;;;;  (20408 58415))
+;;;;;;  (20441 3040))
 ;;; Generated autoloads from w3.el
 
 (autoload 'w3-open-local "w3" "\
@@ -158,19 +158,19 @@ to disk.
 \(fn &optional P)" t nil)
 
 (autoload 'w3-next-document "w3" "\
-Not documented
+
 
 \(fn)" t nil)
 
 (autoload 'w3-prev-document "w3" "\
-Not documented
+
 
 \(fn)" t nil)
 
 ;;;***
 
 ;;;### (autoloads (turn-on-w3-dired w3-dired-find-file-dired w3-dired-minor-mode)
-;;;;;;  "w3-dired" "w3-dired.el" (20408 58413))
+;;;;;;  "w3-dired" "w3-dired.el" (20441 3039))
 ;;; Generated autoloads from w3-dired.el
 
 (autoload 'w3-dired-minor-mode "w3-dired" "\
@@ -190,8 +190,8 @@ Unconditionally turn on W3 Dired bindings.
 
 ;;;***
 
-;;;### (autoloads (w3-region) "w3-display" "w3-display.el" (20408
-;;;;;;  58413))
+;;;### (autoloads (w3-region) "w3-display" "w3-display.el" (20441
+;;;;;;  3039))
 ;;; Generated autoloads from w3-display.el
 
 (autoload 'w3-region "w3-display" "\
@@ -202,21 +202,21 @@ Parse and display the region of this buffer between ST and ND.
 ;;;***
 
 ;;;### (autoloads (w3-do-text-entry w3-form-resurrect-widgets w3-form-add-element)
-;;;;;;  "w3-forms" "w3-forms.el" (20408 58414))
+;;;;;;  "w3-forms" "w3-forms.el" (20441 3039))
 ;;; Generated autoloads from w3-forms.el
 
 (autoload 'w3-form-add-element "w3-forms" "\
-Not documented
+
 
 \(fn PLIST FACE)" nil nil)
 
 (autoload 'w3-form-resurrect-widgets "w3-forms" "\
-Not documented
+
 
 \(fn)" nil nil)
 
 (autoload 'w3-do-text-entry "w3-forms" "\
-Not documented
+
 
 \(fn WIDGET &rest IGNORE)" nil nil)
 
@@ -225,7 +225,7 @@ Not documented
 ;;;### (autoloads (w3-hotlist-view w3-hotlist-apropos w3-hotlist-refresh
 ;;;;;;  w3-hotlist-delete w3-hotlist-add-document w3-hotlist-add-document-at-point
 ;;;;;;  w3-use-hotlist w3-parse-hotlist w3-read-html-bookmarks) "w3-hot"
-;;;;;;  "w3-hot.el" (20408 58414))
+;;;;;;  "w3-hot.el" (20441 3039))
 ;;; Generated autoloads from w3-hot.el
 
 (autoload 'w3-read-html-bookmarks "w3-hot" "\
@@ -280,7 +280,7 @@ Show the hotlist.
 
 ;;;### (autoloads (w3-hotindex-query w3-hotindex-delete-entry w3-hotindex-rename-entry
 ;;;;;;  w3-hotindex-rm-key w3-hotindex-add-key) "w3-hotindex" "w3-hotindex.el"
-;;;;;;  (20408 58414))
+;;;;;;  (20441 3039))
 ;;; Generated autoloads from w3-hotindex.el
 
 (autoload 'w3-hotindex-add-key "w3-hotindex" "\
@@ -316,11 +316,11 @@ Query the HotIndex for KEY.
 ;;;***
 
 ;;;### (autoloads (w3-show-dvi w3-parse-tree-to-latex) "w3-latex"
-;;;;;;  "w3-latex.el" (20408 58414))
+;;;;;;  "w3-latex.el" (20441 3039))
 ;;; Generated autoloads from w3-latex.el
 
 (autoload 'w3-parse-tree-to-latex "w3-latex" "\
-Not documented
+
 
 \(fn TREE &optional URL)" nil nil)
 
@@ -331,8 +331,8 @@ Uses xdvi to show DVI file created from `w3-parse-tree-to-latex'.
 
 ;;;***
 
-;;;### (autoloads (w3-print-this-url) "w3-print" "w3-print.el" (20408
-;;;;;;  58414))
+;;;### (autoloads (w3-print-this-url) "w3-print" "w3-print.el" (20441
+;;;;;;  3039))
 ;;; Generated autoloads from w3-print.el
 
 (autoload 'w3-print-this-url "w3-print" "\
@@ -343,7 +343,7 @@ Print out the current document
 ;;;***
 
 ;;;### (autoloads (w3-table-setup-keys w3-table-speak-current-table-column)
-;;;;;;  "w3-speak-table" "w3-speak-table.el" (20408 58414))
+;;;;;;  "w3-speak-table" "w3-speak-table.el" (20441 3039))
 ;;; Generated autoloads from w3-speak-table.el
 
 (autoload 'w3-table-speak-current-table-column "w3-speak-table" "\
@@ -359,11 +359,11 @@ Setup emacspeak table browsing keys in w3 mode
 ;;;***
 
 ;;;### (autoloads (w3-display-stylesheet w3-handle-style) "w3-style"
-;;;;;;  "w3-style.el" (20408 58414))
+;;;;;;  "w3-style.el" (20441 3040))
 ;;; Generated autoloads from w3-style.el
 
 (autoload 'w3-handle-style "w3-style" "\
-Not documented
+
 
 \(fn &optional PLIST)" nil nil)
 
@@ -380,7 +380,7 @@ Display the stylesheet for the current document.
 ;;;;;;  "w3-fast-parse.el" "w3-imap.el" "w3-java.el" "w3-keymap.el"
 ;;;;;;  "w3-menu.el" "w3-mouse.el" "w3-parse.el" "w3-pkg.el" "w3-props.el"
 ;;;;;;  "w3-speak.el" "w3-toolbar.el" "w3-vars.el" "w3-widget.el"
-;;;;;;  "w3-xemac.el") (20408 58415 150751))
+;;;;;;  "w3-xemac.el") (20441 3040 217428))
 
 ;;;***
 

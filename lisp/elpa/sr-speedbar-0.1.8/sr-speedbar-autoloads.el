@@ -3,14 +3,14 @@
 ;;; Code:
 
 
-;;;### (autoloads nil "sr-speedbar" "sr-speedbar.el" (20354 3859))
+;;;### (autoloads nil "sr-speedbar" "sr-speedbar.el" (20441 3051))
 ;;; Generated autoloads from sr-speedbar.el
 
 (provide 'sr-speedbar)
 
 ;;;***
 
-;;;### (autoloads nil nil ("sr-speedbar-pkg.el") (20354 3860 6410))
+;;;### (autoloads nil nil ("sr-speedbar-pkg.el") (20441 3052 21932))
 
 ;;;***
 

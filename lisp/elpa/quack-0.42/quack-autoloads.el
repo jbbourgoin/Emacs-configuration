@@ -3,8 +3,8 @@
 ;;; Code:
 
 
-;;;### (autoloads nil nil ("quack-pkg.el" "quack.el") (20354 4247
-;;;;;;  190951))
+;;;### (autoloads nil nil ("quack-pkg.el" "quack.el") (20441 3055
+;;;;;;  262111))
 
 ;;;***
 

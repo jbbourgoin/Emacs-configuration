@@ -3,8 +3,8 @@
 ;;; Code:
 
 
-;;;### (autoloads nil nil ("delim-kill-pkg.el" "delim-kill.el") (20354
-;;;;;;  4116 189560))
+;;;### (autoloads nil nil ("delim-kill-pkg.el" "delim-kill.el") (20441
+;;;;;;  3367 39130))
 
 ;;;***
 

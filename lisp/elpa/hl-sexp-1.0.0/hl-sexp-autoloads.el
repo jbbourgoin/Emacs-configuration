@@ -4,7 +4,7 @@
 
 
 ;;;### (autoloads (global-hl-sexp-mode hl-sexp-mode) "hl-sexp" "hl-sexp.el"
-;;;;;;  (20149 49828))
+;;;;;;  (20441 3552))
 ;;; Generated autoloads from hl-sexp.el
 
 (autoload 'hl-sexp-mode "hl-sexp" "\
@@ -25,9 +25,11 @@ or call the function `global-hl-sexp-mode'.")
 (custom-autoload 'global-hl-sexp-mode "hl-sexp" nil)
 
 (autoload 'global-hl-sexp-mode "hl-sexp" "\
-Toggle Hl-Sexp mode in every possible buffer.
-With prefix ARG, turn Global-Hl-Sexp mode on if and only if
-ARG is positive.
+Toggle Hl-Sexp mode in all buffers.
+With prefix ARG, enable Global-Hl-Sexp mode if ARG is positive;
+otherwise, disable it.  If called from Lisp, enable the mode if
+ARG is omitted or nil.
+
 Hl-Sexp mode is enabled in all buffers where
 `hl-sexp-mode' would do it.
 See `hl-sexp-mode' for more information on Hl-Sexp mode.
@@ -36,7 +38,7 @@ See `hl-sexp-mode' for more information on Hl-Sexp mode.
 
 ;;;***
 
-;;;### (autoloads nil nil ("hl-sexp-pkg.el") (20149 49828 848864))
+;;;### (autoloads nil nil ("hl-sexp-pkg.el") (20441 3552 793237))
 
 ;;;***
 

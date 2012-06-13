@@ -4,7 +4,7 @@
 
 
 ;;;### (autoloads (markdown-mode markdown-cleanup-list-numbers) "markdown-mode"
-;;;;;;  "markdown-mode.el" (20354 4059))
+;;;;;;  "markdown-mode.el" (20441 3090))
 ;;; Generated autoloads from markdown-mode.el
 
 (autoload 'markdown-cleanup-list-numbers "markdown-mode" "\
@@ -19,7 +19,7 @@ Major mode for editing Markdown files.
 
 ;;;***
 
-;;;### (autoloads nil nil ("markdown-mode-pkg.el") (20354 4059 162722))
+;;;### (autoloads nil nil ("markdown-mode-pkg.el") (20441 3090 964680))
 
 ;;;***
 

@@ -4,7 +4,7 @@
 
 
 ;;;### (autoloads (flymake-css-load flymake-css-lint-command) "flymake-css"
-;;;;;;  "flymake-css.el" (20420 47035))
+;;;;;;  "flymake-css.el" (20441 3423))
 ;;; Generated autoloads from flymake-css.el
 
 (defvar flymake-css-lint-command "csslint" "\
@@ -23,7 +23,7 @@ function `flymake-mode' alone will not suffice.
 
 ;;;***
 
-;;;### (autoloads nil nil ("flymake-css-pkg.el") (20420 47035 349541))
+;;;### (autoloads nil nil ("flymake-css-pkg.el") (20441 3423 456397))
 
 ;;;***
 
