@@ -35,6 +35,9 @@
  (vimgolf .
 	  [(20120228)
 	   nil "VimGolf interface for the One True Editor [source: github]" single])
+ (vc-darcs .
+	   [(20090617)
+	    nil "a VC backend for darcs [source: darcs]" single])
  (unfill .
 	 [(20120529)
 	  nil "The inverse of fill-paragraph and fill-region [source: github]" single])
@@ -140,13 +143,13 @@
 	    [(20120409)
 	     nil "Intelligent tab completion and indentation. [source: github]" single])
  (smart-mode-line .
-		  [(20120611)
+		  [(20120612)
 		   nil "A color coded smart mode-line. [source: github]" single])
  (slime-ritz .
 	     [(20120612)
 	      nil "slime extensions for ritz [source: github]" single])
  (slime .
-	[(20120525)
+	[(20120612)
 	 nil "Superior Lisp Interaction Mode for Emacs [source: github]" single])
  (scss-mode .
 	    [(20120424)
@@ -232,7 +235,7 @@
 	   [(20120506)
 	    nil "A Python regexp/replace command for Emacs with interactive visual feedback [source: github]" tar])
  (projectile .
-	     [(20120529)
+	     [(20120612)
 	      nil "Manage and navigate projects in Emacs easily [source: github]" single])
  (pretty-symbols-mode .
 		      [(20120507)
@@ -489,7 +492,7 @@
 	   [(20120508)
 	    nil "JavaScript scanner [source: github]" single])
  (js2-mode .
-	   [(20120611)
+	   [(20120613)
 	    nil "an improved JavaScript editing mode [source: github]" tar])
  (js-comint .
 	    [(20080530)
@@ -577,7 +580,7 @@
        [(20120607)
 	nil "Helm is an Emacs incremental and narrowing framework [source: github]" tar])
  (haskell-mode .
-	       [(20120608)
+	       [(20120612)
 		nil "A Haskell editing mode [source: github]" tar])
  (haml-mode .
 	    [(20101019)
@@ -827,8 +830,5 @@
 	    nil "An auto-complete source using slime completions [source: github]" single])
  (ac-dabbrev .
 	     [(20091116)
-	      nil "auto-complete.el source for dabbrev [source: wiki]" single])
- (vc-darcs .
-	   [(20090617)
-	    nil "a VC backend for darcs [source: darcs]" single]))
+	      nil "auto-complete.el source for dabbrev [source: wiki]" single]))
 
