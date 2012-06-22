@@ -44,11 +44,10 @@
                     ;;;  DIRED  ;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; dired
-;; extensions :
 (require 'dired-x)
 (require 'dired+)
 ;; toujours réutiliser le buffer courant :
-(toggle-dired-find-file-reuse-dir 1)
+;; (toggle-dired-find-file-reuse-dir t)
 ;; permet de copier un fichier d'un buffer dired vers
 ;; un autre buffer dired
 (setq dired-dwim-target t)
@@ -60,8 +59,6 @@
 
 (when (eq system-type 'cygwin)
   (require 'w32-find-dired))
-
-(require 'dired+)
 
 (require 'run-assoc)
 
@@ -85,6 +82,11 @@
        (dired-get-marked-files t current-prefix-arg)))))
 (when (eq system-type 'gnu/linux)
   (define-key dired-mode-map (kbd "s-o") 'dired-do-shell-launch-file-default))
+
+;; cacher les infos détaillées
+(require 'dired-details)
+(require 'dired-details+)
+(dired-details-install)
 
 ;; unmount disk in dired
 ;;http://loopkid.net/articles/2008/06/27/force-unmount-on-mac-os-x
@@ -215,10 +217,14 @@
 ;;(set-face-attribute 'default nil :family "Consolas" :height 100)
 ;;(set-face-attribute 'default nil :family "Courier" :height 100)
 
-;;; couleur
-;; (require 'color-theme)
-;; (color-theme-initialize)
-;; (color-theme-comidia)
+;;; theme
+;; désactiver : M-x disable-theme
+;; (load-theme 'pastels-on-dark t)
+(add-to-list 'custom-theme-load-path "~/.emacs.d/public/lisp/elpa/tango-2-theme-20120312/")
+(load-theme 'tango-2 t)
+;; (load-theme 'ujelly t)
+;; (load-theme 'underwater t)
+;; (load-theme 'zen-and-art t)
 
 ;; démarrer maximisé
 (when (eq system-type 'windows-nt)
@@ -492,30 +498,28 @@ to browser. If a region is active (a phrase), lookup that phrase."
                     ;;;;;;;;;;;;;;;;;;;
                     ;;;  YASNIPPET  ;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; yasnippet
-(add-to-list 'load-path
-	     "~/.emacs.d/public/lisp/yasnippet")
-(require 'yasnippet) ;; not yasnippet-bundle
-(yas/initialize)
-(yas/load-directory "~/.emacs.d/public/snippets")
+;; ;;; yasnippet
+;; (require 'yasnippet) ;; not yasnippet-bundle
+;; (yas/initialize)
+;; (yas/load-directory "~/.emacs.d/public/snippets")
 
-;; (setq yas/trigger-key (kbd "s-e"))
-;; (add-hook 'yas/minor-mode-on-hook
-;;           (define-key yas/minor-mode-map yas/trigger-key 'yas/expand))
+;; ;; (setq yas/trigger-key (kbd "s-e"))
+;; ;; (add-hook 'yas/minor-mode-on-hook
+;; ;;           (define-key yas/minor-mode-map yas/trigger-key 'yas/expand))
 
-;;; js2 & yasnippet
-(add-hook 'js2-mode-hook #'yas/minor-mode-on)
+;; ;;; js2 & yasnippet
+;; (add-hook 'js2-mode-hook #'yas/minor-mode-on)
 
-(eval-after-load 'js2-mode
-  '(progn
-     (define-key js2-mode-map (kbd "TAB")
-       (lambda()
-	 (interactive)
-	 (let ((yas/fallback-behavior 'return-nil))
-	   (unless (yas/expand)
-	     (indent-for-tab-command)
-	     (if (looking-back "^\s*")
-		 (back-to-indentation))))))))
+;; (eval-after-load 'js2-mode
+;;   '(progn
+;;      (define-key js2-mode-map (kbd "TAB")
+;;        (lambda()
+;; 	 (interactive)
+;; 	 (let ((yas/fallback-behavior 'return-nil))
+;; 	   (unless (yas/expand)
+;; 	     (indent-for-tab-command)
+;; 	     (if (looking-back "^\s*")
+;; 		 (back-to-indentation))))))))
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
