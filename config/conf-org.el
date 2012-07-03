@@ -31,6 +31,9 @@
 
 ;; code source en couleur
 (setq org-export-latex-listings t)
+;(add-to-list 'org-export-latex-packages-alist '("" "listings"))
+;(add-to-list 'org-export-latex-packages-alist '("" "color"))
+
 
 ;; use xelatex
 ;(setq org-latex-to-pdf-process '("xelatex %f"))
@@ -122,7 +125,7 @@
                ("\\paragraph{%s}" . "\\paragraph*{%s}")
                ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
 
-;;; [you][too] => <span class="you">too</span> & \you{too}
+;;; [latex:you][too] => <span class="you">too</span> & \you{too}
 (org-add-link-type
  "latex" nil
  (lambda (path desc format)
@@ -131,6 +134,32 @@
      (format "<span class=\"%s\">%s</span>" path desc))
     ((eq format 'latex)
      (format "\\%s{%s}" path desc))
+    )))
+
+;;; [[latex_begin:you][too]] : 
+;; <span class="you">
+;; \begin{you}
+(org-add-link-type
+ "latex_begin" nil
+ (lambda (path desc format)
+   (cond
+    ((eq format 'html)
+     (format "<span class=\"%s\">" path))
+    ((eq format 'latex)
+     (format "\\begin{%s}" path))
+    )))
+
+;;; [[latex_end:you][too]] : 
+;; </span>
+;; \end{you}
+(org-add-link-type
+ "latex_end" nil
+ (lambda (path desc format)
+   (cond
+    ((eq format 'html)
+     (format "</span>" path))
+    ((eq format 'latex)
+     (format "\\end{%s}" path))
     )))
 
 ;;; XELATEX

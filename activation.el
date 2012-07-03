@@ -13,8 +13,7 @@
 (require 'conf-init)
 
 ;;; conf générale
-(require 'conf-commun)
-(require 'conf-modes-divers)
+(require 'conf-divers)
 (setq gnus-init-file "~/.emacs.d/public/config/conf-gnus.el")
 
 ;;; modes spécifiques
