@@ -223,7 +223,7 @@
 (add-to-list 'custom-theme-load-path "~/.emacs.d/public/lisp/elpa/tango-2-theme-20120312/")
 (add-to-list 'custom-theme-load-path "~/.emacs.d/public/lisp/elpa/solarized-theme-20120613/")
 ;;(load-theme 'tango-2 t)
-(load-theme 'solarized-dark t)
+(load-theme 'solarized-light t)
 ;; (load-theme 'ujelly t)
 ;; (load-theme 'underwater t)
 ;; (load-theme 'zen-and-art t)
